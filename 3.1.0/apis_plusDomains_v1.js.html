@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/plusDomains/v1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/plusDomains/v1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Google+ Domains API
+ *
+ * @classdesc The Google+ API enables developers to build on top of the Google+ platform.
+ * @namespace plusDomains
+ * @version  v1
+ * @variation v1
+ * @this Plusdomains
+ * @param {object=} options Options for Plusdomains
+ */
+function Plusdomains(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.activities = {
+
+    /**
+     * plusDomains.activities.get
+     *
+     * @desc Get an activity.
+     *
+     * @alias plusDomains.activities.get
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.activityId - The ID of the activity to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/activities/{activityId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['activityId'],
+        pathParams: ['activityId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.activities.insert
+     *
+     * @desc Create a new activity for the authenticated user.
+     *
+     * @alias plusDomains.activities.insert
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {boolean=} params.preview - If "true", extract the potential media attachments for a URL. The response will include all possible attachments for a URL, including video, photos, and articles based on the content of the page.
+     * @param  {string} params.userId - The ID of the user to create the activity on behalf of. Its value should be "me", to indicate the authenticated user.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/activities',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.activities.list
+     *
+     * @desc List all of the activities in the specified collection for a particular user.
+     *
+     * @alias plusDomains.activities.list
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.collection - The collection of activities to list.
+     * @param  {integer=} params.maxResults - The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {string} params.userId - The ID of the user to get activities for. The special value "me" can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/activities/{collection}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId', 'collection'],
+        pathParams: ['collection', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.audiences = {
+
+    /**
+     * plusDomains.audiences.list
+     *
+     * @desc List all of the audiences to which a user can share.
+     *
+     * @alias plusDomains.audiences.list
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {integer=} params.maxResults - The maximum number of circles to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {string} params.userId - The ID of the user to get audiences for. The special value "me" can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/audiences',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.circles = {
+
+    /**
+     * plusDomains.circles.addPeople
+     *
+     * @desc Add a person to a circle. Google+ limits certain circle operations, including the number of circle adds. Learn More.
+     *
+     * @alias plusDomains.circles.addPeople
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to add the person to.
+     * @param  {string=} params.email - Email of the people to add to the circle. Optional, can be repeated.
+     * @param  {string=} params.userId - IDs of the people to add to the circle. Optional, can be repeated.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    addPeople: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}/people',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.get
+     *
+     * @desc Get a circle.
+     *
+     * @alias plusDomains.circles.get
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.insert
+     *
+     * @desc Create a new circle for the authenticated user.
+     *
+     * @alias plusDomains.circles.insert
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The ID of the user to create the circle on behalf of. The value "me" can be used to indicate the authenticated user.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/circles',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.list
+     *
+     * @desc List all of the circles for a user.
+     *
+     * @alias plusDomains.circles.list
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {integer=} params.maxResults - The maximum number of circles to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {string} params.userId - The ID of the user to get circles for. The special value "me" can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/circles',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.patch
+     *
+     * @desc Update a circle's description. This method supports patch semantics.
+     *
+     * @alias plusDomains.circles.patch
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to update.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.remove
+     *
+     * @desc Delete a circle.
+     *
+     * @alias plusDomains.circles.remove
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to delete.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    remove: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.removePeople
+     *
+     * @desc Remove a person from a circle.
+     *
+     * @alias plusDomains.circles.removePeople
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to remove the person from.
+     * @param  {string=} params.email - Email of the people to add to the circle. Optional, can be repeated.
+     * @param  {string=} params.userId - IDs of the people to remove from the circle. Optional, can be repeated.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    removePeople: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}/people',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.circles.update
+     *
+     * @desc Update a circle's description.
+     *
+     * @alias plusDomains.circles.update
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to update.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.comments = {
+
+    /**
+     * plusDomains.comments.get
+     *
+     * @desc Get a comment.
+     *
+     * @alias plusDomains.comments.get
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.commentId - The ID of the comment to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/comments/{commentId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['commentId'],
+        pathParams: ['commentId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.comments.insert
+     *
+     * @desc Create a new comment in reply to an activity.
+     *
+     * @alias plusDomains.comments.insert
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.activityId - The ID of the activity to reply to.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/activities/{activityId}/comments',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['activityId'],
+        pathParams: ['activityId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.comments.list
+     *
+     * @desc List all of the comments for an activity.
+     *
+     * @alias plusDomains.comments.list
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.activityId - The ID of the activity to get comments for.
+     * @param  {integer=} params.maxResults - The maximum number of comments to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {string=} params.sortOrder - The order in which to sort the list of comments.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/activities/{activityId}/comments',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['activityId'],
+        pathParams: ['activityId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.media = {
+
+    /**
+     * plusDomains.media.insert
+     *
+     * @desc Add a new media item to an album. The current upload size limitations are 36MB for a photo and 1GB for a video. Uploads do not count against quota if photos are less than 2048 pixels on their longest side or videos are less than 15 minutes in length.
+     *
+     * @alias plusDomains.media.insert
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.collection - 
+     * @param  {string} params.userId - The ID of the user to create the activity on behalf of.
+     * @param  {object} params.resource - Media resource metadata
+     * @param  {object} params.media - Media object
+     * @param  {string} params.media.mimeType - Media mime-type
+     * @param  {string|object} params.media.body - Media body contents
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/media/{collection}',
+          method: 'POST'
+        },
+        params: params,
+        mediaUrl: 'https://www.googleapis.com/upload/plusDomains/v1/people/{userId}/media/{collection}',
+        requiredParams: ['userId', 'collection'],
+        pathParams: ['collection', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.people = {
+
+    /**
+     * plusDomains.people.get
+     *
+     * @desc Get a person's profile.
+     *
+     * @alias plusDomains.people.get
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The ID of the person to get the profile for. The special value "me" can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.people.list
+     *
+     * @desc List all of the people in the specified collection.
+     *
+     * @alias plusDomains.people.list
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.collection - The collection of people to list.
+     * @param  {integer=} params.maxResults - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.orderBy - The order to return people in.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {string} params.userId - Get the collection of people for the person identified. Use "me" to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/people/{userId}/people/{collection}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId', 'collection'],
+        pathParams: ['collection', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.people.listByActivity
+     *
+     * @desc List all of the people in the specified collection for a particular activity.
+     *
+     * @alias plusDomains.people.listByActivity
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.activityId - The ID of the activity to get the list of people for.
+     * @param  {string} params.collection - The collection of people to list.
+     * @param  {integer=} params.maxResults - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    listByActivity: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/activities/{activityId}/people/{collection}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['activityId', 'collection'],
+        pathParams: ['activityId', 'collection'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * plusDomains.people.listByCircle
+     *
+     * @desc List all of the people who are members of a circle.
+     *
+     * @alias plusDomains.people.listByCircle
+     * @memberOf! plusDomains(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.circleId - The ID of the circle to get the members of.
+     * @param  {integer=} params.maxResults - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    listByCircle: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/plusDomains/v1/circles/{circleId}/people',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['circleId'],
+        pathParams: ['circleId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+}
+
+/**
+ * Exports Plusdomains object
+ * @type Plusdomains
+ */
+module.exports = Plusdomains;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

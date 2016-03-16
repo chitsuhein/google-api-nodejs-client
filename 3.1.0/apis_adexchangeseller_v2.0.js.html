@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/adexchangeseller/v2.0.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/adexchangeseller/v2.0.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Ad Exchange Seller API
+ *
+ * @classdesc Gives Ad Exchange seller users access to their inventory and the ability to generate reports
+ * @namespace adexchangeseller
+ * @version  v2.0
+ * @variation v2.0
+ * @this Adexchangeseller
+ * @param {object=} options Options for Adexchangeseller
+ */
+function Adexchangeseller(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.accounts = {
+
+    /**
+     * adexchangeseller.accounts.get
+     *
+     * @desc Get information about the selected Ad Exchange account.
+     *
+     * @alias adexchangeseller.accounts.get
+     * @memberOf! adexchangeseller(v2.0)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.accountId - Account to get information about. Tip: 'myaccount' is a valid ID.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['accountId'],
+        pathParams: ['accountId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adexchangeseller.accounts.list
+     *
+     * @desc List all accounts available to this Ad Exchange account.
+     *
+     * @alias adexchangeseller.accounts.list
+     * @memberOf! adexchangeseller(v2.0)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {integer=} params.maxResults - The maximum number of accounts to include in the response, used for paging.
+     * @param  {string=} params.pageToken - A continuation token, used to page through accounts. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    adclients: {
+
+      /**
+       * adexchangeseller.accounts.adclients.list
+       *
+       * @desc List all ad clients in this Ad Exchange account.
+       *
+       * @alias adexchangeseller.accounts.adclients.list
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account to which the ad client belongs.
+       * @param  {integer=} params.maxResults - The maximum number of ad clients to include in the response, used for paging.
+       * @param  {string=} params.pageToken - A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/adclients',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    alerts: {
+
+      /**
+       * adexchangeseller.accounts.alerts.list
+       *
+       * @desc List the alerts for this Ad Exchange account.
+       *
+       * @alias adexchangeseller.accounts.alerts.list
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account owning the alerts.
+       * @param  {string=} params.locale - The locale to use for translating alert messages. The account locale will be used if this is not supplied. The AdSense default (English) will be used if the supplied locale is invalid or unsupported.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/alerts',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    customchannels: {
+
+      /**
+       * adexchangeseller.accounts.customchannels.get
+       *
+       * @desc Get the specified custom channel from the specified ad client.
+       *
+       * @alias adexchangeseller.accounts.customchannels.get
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account to which the ad client belongs.
+       * @param  {string} params.adClientId - Ad client which contains the custom channel.
+       * @param  {string} params.customChannelId - Custom channel to retrieve.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId', 'customChannelId'],
+          pathParams: ['accountId', 'adClientId', 'customChannelId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adexchangeseller.accounts.customchannels.list
+       *
+       * @desc List all custom channels in the specified ad client for this Ad Exchange account.
+       *
+       * @alias adexchangeseller.accounts.customchannels.list
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account to which the ad client belongs.
+       * @param  {string} params.adClientId - Ad client for which to list custom channels.
+       * @param  {integer=} params.maxResults - The maximum number of custom channels to include in the response, used for paging.
+       * @param  {string=} params.pageToken - A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/adclients/{adClientId}/customchannels',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    metadata: {
+
+      dimensions: {
+
+        /**
+         * adexchangeseller.accounts.metadata.dimensions.list
+         *
+         * @desc List the metadata for the dimensions available to this AdExchange account.
+         *
+         * @alias adexchangeseller.accounts.metadata.dimensions.list
+         * @memberOf! adexchangeseller(v2.0)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.accountId - Account with visibility to the dimensions.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        list: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/metadata/dimensions',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['accountId'],
+            pathParams: ['accountId'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        }
+      },
+
+      metrics: {
+
+        /**
+         * adexchangeseller.accounts.metadata.metrics.list
+         *
+         * @desc List the metadata for the metrics available to this AdExchange account.
+         *
+         * @alias adexchangeseller.accounts.metadata.metrics.list
+         * @memberOf! adexchangeseller(v2.0)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.accountId - Account with visibility to the metrics.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        list: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/metadata/metrics',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['accountId'],
+            pathParams: ['accountId'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        }
+      }
+    },
+
+    preferreddeals: {
+
+      /**
+       * adexchangeseller.accounts.preferreddeals.get
+       *
+       * @desc Get information about the selected Ad Exchange Preferred Deal.
+       *
+       * @alias adexchangeseller.accounts.preferreddeals.get
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account owning the deal.
+       * @param  {string} params.dealId - Preferred deal to get information about.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/preferreddeals/{dealId}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'dealId'],
+          pathParams: ['accountId', 'dealId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adexchangeseller.accounts.preferreddeals.list
+       *
+       * @desc List the preferred deals for this Ad Exchange account.
+       *
+       * @alias adexchangeseller.accounts.preferreddeals.list
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account owning the deals.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/preferreddeals',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    reports: {
+
+      /**
+       * adexchangeseller.accounts.reports.generate
+       *
+       * @desc Generate an Ad Exchange report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
+       *
+       * @alias adexchangeseller.accounts.reports.generate
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which owns the generated report.
+       * @param  {string=} params.dimension - Dimensions to base the report on.
+       * @param  {string} params.endDate - End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+       * @param  {string=} params.filter - Filters to be run on the report.
+       * @param  {string=} params.locale - Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
+       * @param  {integer=} params.maxResults - The maximum number of rows of report data to return.
+       * @param  {string=} params.metric - Numeric columns to include in the report.
+       * @param  {string=} params.sort - The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+       * @param  {string} params.startDate - Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
+       * @param  {integer=} params.startIndex - Index of the first row of report data to return.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      generate: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/reports',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'startDate', 'endDate'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      saved: {
+
+        /**
+         * adexchangeseller.accounts.reports.saved.generate
+         *
+         * @desc Generate an Ad Exchange report based on the saved report ID sent in the query parameters.
+         *
+         * @alias adexchangeseller.accounts.reports.saved.generate
+         * @memberOf! adexchangeseller(v2.0)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.accountId - Account owning the saved report.
+         * @param  {string=} params.locale - Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
+         * @param  {integer=} params.maxResults - The maximum number of rows of report data to return.
+         * @param  {string} params.savedReportId - The saved report to retrieve.
+         * @param  {integer=} params.startIndex - Index of the first row of report data to return.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        generate: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/reports/{savedReportId}',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['accountId', 'savedReportId'],
+            pathParams: ['accountId', 'savedReportId'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        },
+
+        /**
+         * adexchangeseller.accounts.reports.saved.list
+         *
+         * @desc List all saved reports in this Ad Exchange account.
+         *
+         * @alias adexchangeseller.accounts.reports.saved.list
+         * @memberOf! adexchangeseller(v2.0)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.accountId - Account owning the saved reports.
+         * @param  {integer=} params.maxResults - The maximum number of saved reports to include in the response, used for paging.
+         * @param  {string=} params.pageToken - A continuation token, used to page through saved reports. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        list: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/reports/saved',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['accountId'],
+            pathParams: ['accountId'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        }
+      }
+    },
+
+    urlchannels: {
+
+      /**
+       * adexchangeseller.accounts.urlchannels.list
+       *
+       * @desc List all URL channels in the specified ad client for this Ad Exchange account.
+       *
+       * @alias adexchangeseller.accounts.urlchannels.list
+       * @memberOf! adexchangeseller(v2.0)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account to which the ad client belongs.
+       * @param  {string} params.adClientId - Ad client for which to list URL channels.
+       * @param  {integer=} params.maxResults - The maximum number of URL channels to include in the response, used for paging.
+       * @param  {string=} params.pageToken - A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adexchangeseller/v2.0/accounts/{accountId}/adclients/{adClientId}/urlchannels',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    }
+  };
+}
+
+/**
+ * Exports Adexchangeseller object
+ * @type Adexchangeseller
+ */
+module.exports = Adexchangeseller;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/adsensehost/v4.1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/adsensehost/v4.1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * AdSense Host API
+ *
+ * @classdesc Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.
+ * @namespace adsensehost
+ * @version  v4.1
+ * @variation v4.1
+ * @this Adsensehost
+ * @param {object=} options Options for Adsensehost
+ */
+function Adsensehost(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.accounts = {
+
+    /**
+     * adsensehost.accounts.get
+     *
+     * @desc Get information about the selected associated AdSense account.
+     *
+     * @alias adsensehost.accounts.get
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.accountId - Account to get information about.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['accountId'],
+        pathParams: ['accountId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.accounts.list
+     *
+     * @desc List hosted accounts associated with this AdSense account by ad client id.
+     *
+     * @alias adsensehost.accounts.list
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.filterAdClientId - Ad clients to list accounts for.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/accounts',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['filterAdClientId'],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    adclients: {
+
+      /**
+       * adsensehost.accounts.adclients.get
+       *
+       * @desc Get information about one of the ad clients in the specified publisher's AdSense account.
+       *
+       * @alias adsensehost.accounts.adclients.get
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad client.
+       * @param  {string} params.adClientId - Ad client to get.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adclients.list
+       *
+       * @desc List all hosted ad clients in the specified hosted account.
+       *
+       * @alias adsensehost.accounts.adclients.list
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account for which to list ad clients.
+       * @param  {integer=} params.maxResults - The maximum number of ad clients to include in the response, used for paging.
+       * @param  {string=} params.pageToken - A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    adunits: {
+
+      /**
+       * adsensehost.accounts.adunits.delete
+       *
+       * @desc Delete the specified ad unit from the specified publisher AdSense account.
+       *
+       * @alias adsensehost.accounts.adunits.delete
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad unit.
+       * @param  {string} params.adClientId - Ad client for which to get ad unit.
+       * @param  {string} params.adUnitId - Ad unit to delete.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId', 'adUnitId'],
+          pathParams: ['accountId', 'adClientId', 'adUnitId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.get
+       *
+       * @desc Get the specified host ad unit in this AdSense account.
+       *
+       * @alias adsensehost.accounts.adunits.get
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad unit.
+       * @param  {string} params.adClientId - Ad client for which to get ad unit.
+       * @param  {string} params.adUnitId - Ad unit to get.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId', 'adUnitId'],
+          pathParams: ['accountId', 'adClientId', 'adUnitId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.getAdCode
+       *
+       * @desc Get ad code for the specified ad unit, attaching the specified host custom channels.
+       *
+       * @alias adsensehost.accounts.adunits.getAdCode
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad client.
+       * @param  {string} params.adClientId - Ad client with contains the ad unit.
+       * @param  {string} params.adUnitId - Ad unit to get the code for.
+       * @param  {string=} params.hostCustomChannelId - Host custom channel to attach to the ad code.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      getAdCode: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/adcode',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId', 'adUnitId'],
+          pathParams: ['accountId', 'adClientId', 'adUnitId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.insert
+       *
+       * @desc Insert the supplied ad unit into the specified publisher AdSense account.
+       *
+       * @alias adsensehost.accounts.adunits.insert
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which will contain the ad unit.
+       * @param  {string} params.adClientId - Ad client into which to insert the ad unit.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      insert: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.list
+       *
+       * @desc List all ad units in the specified publisher's AdSense account.
+       *
+       * @alias adsensehost.accounts.adunits.list
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad client.
+       * @param  {string} params.adClientId - Ad client for which to list ad units.
+       * @param  {boolean=} params.includeInactive - Whether to include inactive ad units. Default: true.
+       * @param  {integer=} params.maxResults - The maximum number of ad units to include in the response, used for paging.
+       * @param  {string=} params.pageToken - A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.patch
+       *
+       * @desc Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.
+       *
+       * @alias adsensehost.accounts.adunits.patch
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad client.
+       * @param  {string} params.adClientId - Ad client which contains the ad unit.
+       * @param  {string} params.adUnitId - Ad unit to get.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      patch: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits',
+            method: 'PATCH'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId', 'adUnitId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * adsensehost.accounts.adunits.update
+       *
+       * @desc Update the supplied ad unit in the specified publisher AdSense account.
+       *
+       * @alias adsensehost.accounts.adunits.update
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Account which contains the ad client.
+       * @param  {string} params.adClientId - Ad client which contains the ad unit.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      update: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits',
+            method: 'PUT'
+          },
+          params: params,
+          requiredParams: ['accountId', 'adClientId'],
+          pathParams: ['accountId', 'adClientId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    reports: {
+
+      /**
+       * adsensehost.accounts.reports.generate
+       *
+       * @desc Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
+       *
+       * @alias adsensehost.accounts.reports.generate
+       * @memberOf! adsensehost(v4.1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.accountId - Hosted account upon which to report.
+       * @param  {string=} params.dimension - Dimensions to base the report on.
+       * @param  {string} params.endDate - End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+       * @param  {string=} params.filter - Filters to be run on the report.
+       * @param  {string=} params.locale - Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
+       * @param  {integer=} params.maxResults - The maximum number of rows of report data to return.
+       * @param  {string=} params.metric - Numeric columns to include in the report.
+       * @param  {string=} params.sort - The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+       * @param  {string} params.startDate - Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
+       * @param  {integer=} params.startIndex - Index of the first row of report data to return.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      generate: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/reports',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['accountId', 'startDate', 'endDate'],
+          pathParams: ['accountId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    }
+  };
+
+  this.adclients = {
+
+    /**
+     * adsensehost.adclients.get
+     *
+     * @desc Get information about one of the ad clients in the Host AdSense account.
+     *
+     * @alias adsensehost.adclients.get
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.adclients.list
+     *
+     * @desc List all host ad clients in this AdSense account.
+     *
+     * @alias adsensehost.adclients.list
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {integer=} params.maxResults - The maximum number of ad clients to include in the response, used for paging.
+     * @param  {string=} params.pageToken - A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.associationsessions = {
+
+    /**
+     * adsensehost.associationsessions.start
+     *
+     * @desc Create an association session for initiating an association with an AdSense user.
+     *
+     * @alias adsensehost.associationsessions.start
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.productCode - Products to associate with the user.
+     * @param  {string=} params.userLocale - The preferred locale of the user.
+     * @param  {string=} params.websiteLocale - The locale of the user's hosted website.
+     * @param  {string} params.websiteUrl - The URL of the user's hosted website.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    start: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/associationsessions/start',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['productCode', 'websiteUrl'],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.associationsessions.verify
+     *
+     * @desc Verify an association session after the association callback returns from AdSense signup.
+     *
+     * @alias adsensehost.associationsessions.verify
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.token - The token returned to the association callback URL.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    verify: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/associationsessions/verify',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['token'],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.customchannels = {
+
+    /**
+     * adsensehost.customchannels.delete
+     *
+     * @desc Delete a specific custom channel from the host AdSense account.
+     *
+     * @alias adsensehost.customchannels.delete
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client from which to delete the custom channel.
+     * @param  {string} params.customChannelId - Custom channel to delete.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels/{customChannelId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['adClientId', 'customChannelId'],
+        pathParams: ['adClientId', 'customChannelId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.customchannels.get
+     *
+     * @desc Get a specific custom channel from the host AdSense account.
+     *
+     * @alias adsensehost.customchannels.get
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client from which to get the custom channel.
+     * @param  {string} params.customChannelId - Custom channel to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels/{customChannelId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['adClientId', 'customChannelId'],
+        pathParams: ['adClientId', 'customChannelId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.customchannels.insert
+     *
+     * @desc Add a new custom channel to the host AdSense account.
+     *
+     * @alias adsensehost.customchannels.insert
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client to which the new custom channel will be added.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.customchannels.list
+     *
+     * @desc List all host custom channels in this AdSense account.
+     *
+     * @alias adsensehost.customchannels.list
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client for which to list custom channels.
+     * @param  {integer=} params.maxResults - The maximum number of custom channels to include in the response, used for paging.
+     * @param  {string=} params.pageToken - A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.customchannels.patch
+     *
+     * @desc Update a custom channel in the host AdSense account. This method supports patch semantics.
+     *
+     * @alias adsensehost.customchannels.patch
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client in which the custom channel will be updated.
+     * @param  {string} params.customChannelId - Custom channel to get.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['adClientId', 'customChannelId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.customchannels.update
+     *
+     * @desc Update a custom channel in the host AdSense account.
+     *
+     * @alias adsensehost.customchannels.update
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client in which the custom channel will be updated.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.reports = {
+
+    /**
+     * adsensehost.reports.generate
+     *
+     * @desc Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
+     *
+     * @alias adsensehost.reports.generate
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string=} params.dimension - Dimensions to base the report on.
+     * @param  {string} params.endDate - End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+     * @param  {string=} params.filter - Filters to be run on the report.
+     * @param  {string=} params.locale - Optional locale to use for translating report output to a local language. Defaults to "en_US" if not specified.
+     * @param  {integer=} params.maxResults - The maximum number of rows of report data to return.
+     * @param  {string=} params.metric - Numeric columns to include in the report.
+     * @param  {string=} params.sort - The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending.
+     * @param  {string} params.startDate - Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
+     * @param  {integer=} params.startIndex - Index of the first row of report data to return.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    generate: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/reports',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['startDate', 'endDate'],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.urlchannels = {
+
+    /**
+     * adsensehost.urlchannels.delete
+     *
+     * @desc Delete a URL channel from the host AdSense account.
+     *
+     * @alias adsensehost.urlchannels.delete
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client from which to delete the URL channel.
+     * @param  {string} params.urlChannelId - URL channel to delete.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels/{urlChannelId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['adClientId', 'urlChannelId'],
+        pathParams: ['adClientId', 'urlChannelId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.urlchannels.insert
+     *
+     * @desc Add a new URL channel to the host AdSense account.
+     *
+     * @alias adsensehost.urlchannels.insert
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client to which the new URL channel will be added.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * adsensehost.urlchannels.list
+     *
+     * @desc List all host URL channels in the host AdSense account.
+     *
+     * @alias adsensehost.urlchannels.list
+     * @memberOf! adsensehost(v4.1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.adClientId - Ad client for which to list URL channels.
+     * @param  {integer=} params.maxResults - The maximum number of URL channels to include in the response, used for paging.
+     * @param  {string=} params.pageToken - A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['adClientId'],
+        pathParams: ['adClientId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+}
+
+/**
+ * Exports Adsensehost object
+ * @type Adsensehost
+ */
+module.exports = Adsensehost;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

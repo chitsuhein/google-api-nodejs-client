@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3>googleapis 3.1.0</h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&s=96" alt="Google Inc. logo" title="Google" align="right" height="96" width="96"/></p>
+<h1>Google APIs Node.js Client</h1><p><a href="https://travis-ci.org/google/google-api-nodejs-client"><img src="https://api.travis-ci.org/google/google-api-nodejs-client.svg" alt="Build Status"></a>
+<a href="https://coveralls.io/github/google/google-api-nodejs-client?branch=master"><img src="https://coveralls.io/repos/github/google/google-api-nodejs-client/badge.svg?branch=master" alt="Code Coverage"></a></p>
+<p>Google's officially supported <a href="http://nodejs.org/">Node.js</a> client library for using Google
+APIs. Support for authorization and authentication with OAuth 2.0, API Keys and
+JWT (Service Tokens) is included.</p>
+<h2>Table of Contents</h2><ul>
+<li><a href="#alpha">Alpha</a></li>
+<li><a href="#migrating-to-version-2x-of-this-library">Migrating to version <code>2.x</code> of this library</a></li>
+<li><a href="#supported-apis">Supported APIs</a></li>
+<li><a href="#questionsproblems">Questions/problems?</a></li>
+<li><a href="#working-with-google-cloud-platform-apis">Working with Google Cloud Platform APIs?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#create-a-service-client">Create a service client</a></li>
+<li><a href="#authorizing-and-authenticating">Authorizing and authenticating</a><ul>
+<li><a href="#oauth2-client">OAuth2 client</a><ul>
+<li><a href="#generating an authentication URL">Generating an authentication URL</a></li>
+<li><a href="#retrieve-authorization-code">Retrieve authorization code</a></li>
+<li><a href="#retrieve-access-token">Retrieve access token</a></li>
+<li><a href="#setting-global-or-service-level-auth">Setting global or service-level auth</a></li>
+<li><a href="#making-authenticated-requests">Making authenticated requests</a></li>
+<li><a href="#manually-refreshing-access-token">Manually refreshing access token</a></li>
+</ul>
+</li>
+<li><a href="#using-api-keys">Using API keys</a></li>
+<li><a href="#using-jwt-service-tokens">Using JWT (Service Tokens)</a></li>
+<li><a href="#choosing-the-correct-credential-type-automatically">Choosing the correct credential type automatically</a></li>
+</ul>
+</li>
+<li><a href="#specifying-request-body">Specifying request body</a></li>
+<li><a href="#media-uploads">Media uploads</a><ul>
+<li><a href="#example-upload-a-plain-text-file-to-google-drive">Example: Upload a plain text file to Google Drive</a></li>
+<li><a href="#example-upload-an-image-to-google-drive-from-a-readable-stream">Example: Upload an image to Google Drive from a readable stream</a></li>
+</ul>
+</li>
+<li><a href="#exposing-request-object">Exposing request object</a></li>
+<li><a href="#options">Options</a><ul>
+<li><a href="#available-options">Available options</a></li>
+<li><a href="#global-options">Global options</a><ul>
+<li><a href="#example-specifying-a-default-proxy-and-auth-to-be-used-for-each-request">Example: Specifying a default proxy and <code>auth</code> to be used for each request</a></li>
+<li><a href="#example-specifying-global-request-parameters">Example: Specifying global request parameters</a></li>
+</ul>
+</li>
+<li><a href="#service-client-options">Service-client options</a><ul>
+<li><a href="#example-specifying-a-default-auth-option-api-key-or-oauth2-client">Example: Specifying a default <code>auth</code> option (API key or OAuth2 client)</a></li>
+<li><a href="#example-specifying-default-service-client-query-parameters">Example: Specifying default service client query parameters</a></li>
+</ul>
+</li>
+<li><a href="#request-level-options">Request-level options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+<h3>Alpha</h3><p>This library is in Alpha. We will make an effort to support the library, but we reserve the right to make incompatible changes when necessary.</p>
+<h3>Migrating to version <code>2.x</code> of this library</h3><p>If you've used this library before <code>1.x</code>, see our <a href="https://github.com/google/google-api-nodejs-client/tree/master/MIGRATING.md">Migration Guide</a>
+to learn about migrating your code from <code>0.x.x</code> to <code>1.x</code>. It's pretty easy :)</p>
+<p>If your code already works with a <code>1.x</code> version of this library, no work is required
+to move to <code>2.x</code>. However, note that return data of getToken has become an array. Furthermore, it is recommended that you update any direct links in your code,
+as explained in the <a href="https://github.com/google/google-api-nodejs-client/tree/master/MIGRATING.md">Migration Guide</a>.</p>
+<h3>Supported APIs</h3><p>The full list of supported APIs can be found <a href="https://developers.google.com/apis-explorer/">here</a>. The API endpoints are automatically generated, so if the API is not in the list, it is currently not supported by this API client library.</p>
+<h3>Questions/problems?</h3><ul>
+<li>Ask your development related questions on <a href="http://stackoverflow.com/questions/tagged/google-api-nodejs-client"><img src="https://googledrive.com/host/0ByfSjdPVs9MZbkhjeUhMYzRTeEE/stackoveflow-tag.png" alt="Ask a question on Stackoverflow"></a></li>
+<li>If you've found an bug/issue, please <a href="https://github.com/google/google-api-nodejs-client/issues">file it on GitHub</a>.</li>
+</ul>
+<h3>Working with Google Cloud Platform APIs?</h3><p>If you're working with <a href="https://cloud.google.com/docs/">Google Cloud Platform</a> APIs such as
+Datastore, Cloud Storage or Pub/Sub, consider using <a href="https://github.com/GoogleCloudPlatform/gcloud-node"><code>gcloud</code></a>, an
+idiomatic Node.js client for Google Cloud Platform services.</p>
+<p>You can find the list of Google Cloud Platform APIs supported by gcloud in the
+<a href="https://googlecloudplatform.github.io/gcloud-node/#/docs/gcloud">gcloud docs</a>.</p>
+<h2>Installation</h2><p>This library is distributed on <code>npm</code>. In order to add it as a dependency,
+run the following command:</p>
+<pre class="prettyprint source lang-sh"><code>$ npm install googleapis --save</code></pre><h2>Usage</h2><p>Example: Creates a URL Shortener client and retrieves the long url of the
+given short url:</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var urlshortener = google.urlshortener('v1');
+
+var params = { shortUrl: 'http://goo.gl/xKbRu3' };
+
+// get the long url of a shortened url
+urlshortener.url.get(params, function (err, response) {
+  if (err) {
+    console.log('Encountered error', err);
+  } else {
+    console.log('Long url is', response.longUrl);
+  }
+});</code></pre><h3>Create a service client</h3><p>To interact with the various Google APIs you need to create a service client
+for that particular API. These are immutable objects you use to make API calls.</p>
+<p>Example: Creating a <code>urlshortener</code> client with version <code>v1</code> of the API.</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var urlshortener = google.urlshortener('v1');</code></pre><p>Supported APIs are listed on the <a href="https://developers.google.com/apis-explorer">Google APIs Explorer</a>.</p>
+<h3>Authorizing and authenticating</h3><h4>OAuth2 client</h4><p>This client comes with an <a href="https://developers.google.com/identity/protocols/OAuth2">OAuth2</a> client that allows you to retrieve an
+access token and refreshes the token and retry the request seamlessly if token
+is expired. The basics of Google's OAuth2 implementation is explained on
+<a href="https://developers.google.com/identity/protocols/OpenIDConnect">Google Authorization and Authentication documentation</a>.</p>
+<p>In the following examples, you may need a <code>CLIENT_ID</code>, <code>CLIENT_SECRET</code> and
+<code>REDIRECT_URL</code>. You can find these pieces of information by going to the
+<a href="https://console.developer.google.com">Developer Console</a>, clicking your project --&gt; APIs &amp; auth --&gt; credentials.</p>
+<p>For more information about OAuth2 and how it works, <a href="https://developers.google.com/identity/protocols/OAuth2">see here</a>.</p>
+<p>A complete sample application that authorizes and authenticates with the OAuth2
+client is available at <a href="https://github.com/google/google-api-nodejs-client/tree/master/samples/oauth2.js"><code>samples/oauth2.js</code></a>.</p>
+<h5>Generating an authentication URL</h5><p>To ask for permissions from a user to retrieve an access token, you
+redirect them to a consent page. To create a consent page URL:</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var OAuth2 = google.auth.OAuth2;
+
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+
+// generate a url that asks permissions for Google+ and Google Calendar scopes
+var scopes = [
+  'https://www.googleapis.com/auth/plus.me',
+  'https://www.googleapis.com/auth/calendar'
+];
+
+var url = oauth2Client.generateAuthUrl({
+  access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
+  scope: scopes // If you only need one scope you can pass it as string
+});</code></pre><h5>Retrieve authorization code</h5><p>Once a user has given permissions on the consent page, Google will redirect
+the page to the redirect URL you have provided with a code query parameter.</p>
+<pre class="prettyprint source"><code>GET /oauthcallback?code={authorizationCode}</code></pre><h5>Retrieve access token</h5><p>With the code returned, you can ask for an access token as shown below:</p>
+<pre class="prettyprint source lang-js"><code>oauth2Client.getToken(code, function(err, tokens) {
+  // Now tokens contains an access_token and an optional refresh_token. Save them.
+  if(!err) {
+    oauth2Client.setCredentials(tokens);
+  }
+});</code></pre><h5>Setting global or service-level auth</h5><p>You can set the <code>auth</code> as a global or service-level option so you don't need to
+specify it every request.</p>
+<p>Example: Setting a global <code>auth</code> option.</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+google.options({ auth: oauth2Client }); // set auth as a global default</code></pre><p>Example: Setting a service-level <code>auth</code> option.</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+
+var drive = google.drive({ version: 'v2', auth: oauth2Client });</code></pre><p>See the <a href="https://github.com/google/google-api-nodejs-client/tree/master#options">Options section</a> for more information.</p>
+<h5>Making authenticated requests</h5><p>You can start using OAuth2 to authorize and authenticate your
+requests to Google APIs with the retrieved tokens. If you provide a
+<code>refresh_token</code> and the <code>access_token</code> has expired, the <code>access_token</code> will be
+automatically refreshed and the request is replayed.</p>
+<p>Following sample retrieves Google+ profile of the authenticated user.</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var plus = google.plus('v1');
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+
+// Retrieve tokens via token exchange explained above or set them:
+oauth2Client.setCredentials({
+  access_token: 'ACCESS TOKEN HERE',
+  refresh_token: 'REFRESH TOKEN HERE'
+});
+
+plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, response) {
+  // handle err and response
+});</code></pre><h5>Manually refreshing access token</h5><p>If you need to manually refresh the <code>access_token</code> associated with your OAuth2
+client, make sure you have a <code>refresh_token</code> set in your credentials first and
+then call:</p>
+<pre class="prettyprint source lang-js"><code>oauth2Client.refreshAccessToken(function(err, tokens) {
+  // your access_token is now refreshed and stored in oauth2Client
+  // store these new tokens in a safe place (e.g. database)
+});</code></pre><h4>Using API keys</h4><p>You may need to send an API key with the request you are going to make.
+The following uses an API key to make a request to the Google+ API service to
+retrieve a person's profile given a userId:</p>
+<pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+var plus = google.plus('v1');
+
+var API_KEY = 'ABC123'; // specify your API key here
+
+plus.people.get({ auth: API_KEY, userId: '+google' }, function(err, user) {
+  console.log('Result: ' + (err ? err.message : user.displayName));
+});</code></pre><p>Alternatively, you can specify the <code>key</code> parameter and it will get used:</p>
+<pre class="prettyprint source lang-js"><code>plus.people.get({ key: API_KEY, userId: '+google' }, function(err, user) {
+  console.log('Result: ' + (err ? err.message : user.displayName));
+});</code></pre><p>To learn more about API keys, please see the <a href="https://developers.google.com/console/help/#UsingKeys">documentation</a>.</p>
+<h4>Using JWT (Service Tokens)</h4><p>The Google Developers Console provides <code>.json</code> file that you can use to configure a JWT auth client and authenticate your requests.</p>
+<pre class="prettyprint source lang-js"><code>var key = require('path/to/key.json');
+var jwtClient = new google.auth.JWT(key.client_email, null, key.private_key, [scope1, scope2], null);
+
+jwtClient.authorize(function(err, tokens) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  // Make an authorized request to list Drive files.
+  drive.files.list({ auth: jwtClient }, function(err, resp) {
+    // handle err and response
+  });
+});</code></pre><p>The parameters for the JWT auth client including how to use it with a <code>.pem</code> file are explained in <a href="samples/jwt.js">samples/jwt.js</a></p>
+<h4>Choosing the correct credential type automatically</h4><p>Rather than manually creating an OAuth2 client, JWT client, or Compute client, the auth
+library can create the correct credential type for you, depending upon the environment your
+code is running under.</p>
+<p>For example, a JWT auth client will be created when your code is running
+on your local developer machine, and a Compute client will be created when the same code
+is running on a configured instance of Google Compute Engine.</p>
+<p>The code below shows how to retrieve a default credential type, depending upon the runtime
+environment. The createScopedRequired must be called to determine when you need to pass
+in the scopes manually, and when they have been set for you automatically based on the
+configured runtime environment.</p>
+<pre class="prettyprint source lang-js"><code>google.auth.getApplicationDefault(function(err, authClient) {
+  if (err) {
+    res.send('Failed to get the default credentials: ' + String(err));
+    return;
+  }
+  // The createScopedRequired method returns true when running on GAE or a local developer
+  // machine. In that case, the desired scopes must be passed in manually. When the code is
+  // running in GCE or a Managed VM, the scopes are pulled from the GCE metadata server.
+  // See https://cloud.google.com/compute/docs/authentication for more information.
+  if (authClient.createScopedRequired && authClient.createScopedRequired()) {
+    // Scopes can be specified either as an array or as a single, space-delimited string.
+    authClient = authClient.createScoped(['https://www.googleapis.com/auth/compute']);
+  }
+  // Fetch the list of GCE zones within a project.
+  // NOTE: You must fill in your valid project ID before running this sample!
+  var compute = google.compute({ version: 'v1', auth: authClient });
+  var projectId = 'fill in your project id here!';
+  compute.zones.list({ project: projectId, auth: authClient }, function(error, result) {
+    console.log(error, result);
+  });
+});</code></pre><h3>Specifying request body</h3><p>The body of the request is specified in the <code>resource</code> parameter object of the request. The resource/body is specified as a JavaScript object with key/value pairs. See the example in the next section below for an example on how it is specified.</p>
+<h3>Media uploads</h3><p>This client supports multipart media uploads. The resource parameters are
+specified in the <code>resource</code> parameter object, and the media itself is
+specified in the <code>media.body</code> parameter with mime-type specified in <code>media.mimeType</code>.</p>
+<h5>Example: Upload a plain text file to Google Drive</h5><p>This example uploads a plain text file to Google Drive with the title &quot;Test&quot; and
+contents &quot;Hello World&quot;.</p>
+<pre class="prettyprint source lang-js"><code>var drive = google.drive({ version: 'v2', auth: oauth2Client });
+
+drive.files.insert({
+  resource: {
+    title: 'Test',
+    mimeType: 'text/plain'
+  },
+  media: {
+    mimeType: 'text/plain',
+    body: 'Hello World'
+  }
+}, callback);</code></pre><p>You can also upload media by specifying <code>media.body</code> as a <a href="http://nodejs.org/api/stream.html#stream_class_stream_readable">Readable stream</a>.
+This can allow you to upload very large files that cannot fit into memory.</p>
+<p>Note: Your readable stream may be <a href="http://nodejs.org/api/stream.html#stream_stream">unstable</a>. Use at your own risk.</p>
+<h5>Example: Upload an image to Google Drive from a readable stream</h5><pre class="prettyprint source lang-js"><code>var fs = require('fs');
+var drive = google.drive({ version: 'v2', auth: oauth2Client });
+
+drive.files.insert({
+  resource: {
+    title: 'testimage.png',
+    mimeType: 'image/png'
+  },
+  media: {
+    mimeType: 'image/png',
+    body: fs.createReadStream('awesome.png') // read streams are awesome!
+  }
+}, callback);</code></pre><p>For more examples of creation and modification requests with media attachments,
+take a look at the <code>samples/mediaupload.js</code> sample.</p>
+<h3>Exposing request object</h3><p>Every request to the API returns a <a href="https://github.com/request/request"><code>request</code></a> object, allowing you to track
+the request's progress or general information about the request.</p>
+<pre class="prettyprint source lang-js"><code>var req = drive.files.insert(/* ... */);
+console.log(req.uri.href); // print out the request's URL.</code></pre><h3>Options</h3><p>For more fine-tuned control over how your API calls are made,
+we provide you with the ability to specify additional options that can
+be applied directly to the <a href="https://github.com/request/request"><code>mikeal/request</code></a> object used in
+this library to make network calls to the API.</p>
+<p>You may specify additional options either in the global <code>google</code> object or on a
+service client basis.</p>
+<h4>Available options</h4><p>The options you specify are attached to the <code>request</code> object so whatever
+<code>request</code> supports, this library supports. You may also specify global or per-service request parameters that will be attached to all API calls you make.</p>
+<p>A full list of supported options can be <a href="https://github.com/request/request#requestoptions-callback">found here</a>.</p>
+<h4>Global options</h4><h5>Example: Specifying a default proxy and <code>auth</code> to be used for each request</h5><pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+google.options({ proxy: 'http://proxy.example.com', auth: auth });
+
+// All requests made with this object will use these settings unless overridden.</code></pre><h5>Example: Specifying global request parameters</h5><pre class="prettyprint source lang-js"><code>var google = require('googleapis');
+google.options({ params: { quotaUser: 'user123@example.com' } });
+
+// All requests from all services will contain the above query parameter
+// unless overridden either in a service client or in individual API calls.</code></pre><h4>Service-client options</h4><p>You can also specify options when creating a service client.</p>
+<h5>Example: Specifying a default <code>auth</code> option (API key or OAuth2 client)</h5><pre class="prettyprint source lang-js"><code>var auth = 'API KEY'; // or you could use oauth2Client
+var urlshortener = google.urlshortener({ version: 'v1', auth: auth });
+
+// All requests made with this object will use the specified auth.</code></pre><p>By doing this, every API call made with this service client will use <code>'API KEY'</code>
+to authenticate.</p>
+<p><strong>Note:</strong> Created clients are <strong>immutable</strong> so you must create a new one if you
+want to specify different options.</p>
+<h5>Example: Specifying default service client query parameters</h5><pre class="prettyprint source lang-js"><code>var urlshortener = google.urlshortener({
+  version: 'v1',
+  params: { quotaUser: 'user123@example.com' }
+});
+// All requests made with this service client will contain the
+// quotaUser query parameter unless overridden in individual API calls.
+
+// Calls with this drive client will NOT contain the quotaUser query parameter.
+var drive = google.drive('v2');</code></pre><h4>Request-level options</h4><p>You can specify an <code>auth</code> object to be used per request. Each request also
+inherits the options specified at the service level and global level.</p>
+<h2>License</h2><p>This library is licensed under Apache 2.0. Full license text is
+available in <a href="https://github.com/google/google-api-nodejs-client/tree/master/COPYING">COPYING</a>.</p>
+<h2>Contributing</h2><p>See <a href="https://github.com/google/google-api-nodejs-client/blob/master/.github/CONTRIBUTING.md">CONTRIBUTING</a>.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/mirror/v1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/mirror/v1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Google Mirror API
+ *
+ * @classdesc API for interacting with Glass users via the timeline.
+ * @namespace mirror
+ * @version  v1
+ * @variation v1
+ * @this Mirror
+ * @param {object=} options Options for Mirror
+ */
+function Mirror(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.accounts = {
+
+    /**
+     * mirror.accounts.insert
+     *
+     * @desc Inserts a new account for a user
+     *
+     * @alias mirror.accounts.insert
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.accountName - The name of the account to be passed to the Android Account Manager.
+     * @param  {string} params.accountType - Account type to be passed to Android Account Manager.
+     * @param  {string} params.userToken - The ID for the user.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/accounts/{userToken}/{accountType}/{accountName}',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['userToken', 'accountType', 'accountName'],
+        pathParams: ['accountName', 'accountType', 'userToken'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.contacts = {
+
+    /**
+     * mirror.contacts.delete
+     *
+     * @desc Deletes a contact.
+     *
+     * @alias mirror.contacts.delete
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the contact.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts/{id}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.contacts.get
+     *
+     * @desc Gets a single contact by ID.
+     *
+     * @alias mirror.contacts.get
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the contact.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts/{id}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.contacts.insert
+     *
+     * @desc Inserts a new contact.
+     *
+     * @alias mirror.contacts.insert
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.contacts.list
+     *
+     * @desc Retrieves a list of contacts for the authenticated user.
+     *
+     * @alias mirror.contacts.list
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.contacts.patch
+     *
+     * @desc Updates a contact in place. This method supports patch semantics.
+     *
+     * @alias mirror.contacts.patch
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the contact.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts/{id}',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.contacts.update
+     *
+     * @desc Updates a contact in place.
+     *
+     * @alias mirror.contacts.update
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the contact.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/contacts/{id}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.locations = {
+
+    /**
+     * mirror.locations.get
+     *
+     * @desc Gets a single location by ID.
+     *
+     * @alias mirror.locations.get
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the location or latest for the last known location.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/locations/{id}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.locations.list
+     *
+     * @desc Retrieves a list of locations for the user.
+     *
+     * @alias mirror.locations.list
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/locations',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.settings = {
+
+    /**
+     * mirror.settings.get
+     *
+     * @desc Gets a single setting by ID.
+     *
+     * @alias mirror.settings.get
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the setting. The following IDs are valid:  - locale - The key to the user’s language/locale (BCP 47 identifier) that Glassware should use to render localized content.  - timezone - The key to the user’s current time zone region as defined in the tz database. Example: America/Los_Angeles.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/settings/{id}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.subscriptions = {
+
+    /**
+     * mirror.subscriptions.delete
+     *
+     * @desc Deletes a subscription.
+     *
+     * @alias mirror.subscriptions.delete
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the subscription.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/subscriptions/{id}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.subscriptions.insert
+     *
+     * @desc Creates a new subscription.
+     *
+     * @alias mirror.subscriptions.insert
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/subscriptions',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.subscriptions.list
+     *
+     * @desc Retrieves a list of subscriptions for the authenticated user and service.
+     *
+     * @alias mirror.subscriptions.list
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/subscriptions',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.subscriptions.update
+     *
+     * @desc Updates an existing subscription in place.
+     *
+     * @alias mirror.subscriptions.update
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the subscription.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/subscriptions/{id}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.timeline = {
+
+    /**
+     * mirror.timeline.delete
+     *
+     * @desc Deletes a timeline item.
+     *
+     * @alias mirror.timeline.delete
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the timeline item.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline/{id}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.timeline.get
+     *
+     * @desc Gets a single timeline item by ID.
+     *
+     * @alias mirror.timeline.get
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the timeline item.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline/{id}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.timeline.insert
+     *
+     * @desc Inserts a new item into the timeline.
+     *
+     * @alias mirror.timeline.insert
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Media resource metadata
+     * @param  {object} params.media - Media object
+     * @param  {string} params.media.mimeType - Media mime-type
+     * @param  {string|object} params.media.body - Media body contents
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline',
+          method: 'POST'
+        },
+        params: params,
+        mediaUrl: 'https://www.googleapis.com/upload/mirror/v1/timeline',
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.timeline.list
+     *
+     * @desc Retrieves a list of timeline items for the authenticated user.
+     *
+     * @alias mirror.timeline.list
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {string=} params.bundleId - If provided, only items with the given bundleId will be returned.
+     * @param  {boolean=} params.includeDeleted - If true, tombstone records for deleted items will be returned.
+     * @param  {integer=} params.maxResults - The maximum number of items to include in the response, used for paging.
+     * @param  {string=} params.orderBy - Controls the order in which timeline items are returned.
+     * @param  {string=} params.pageToken - Token for the page of results to return.
+     * @param  {boolean=} params.pinnedOnly - If true, only pinned items will be returned.
+     * @param  {string=} params.sourceItemId - If provided, only items with the given sourceItemId will be returned.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.timeline.patch
+     *
+     * @desc Updates a timeline item in place. This method supports patch semantics.
+     *
+     * @alias mirror.timeline.patch
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the timeline item.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline/{id}',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * mirror.timeline.update
+     *
+     * @desc Updates a timeline item in place.
+     *
+     * @alias mirror.timeline.update
+     * @memberOf! mirror(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.id - The ID of the timeline item.
+     * @param  {object} params.resource - Media resource metadata
+     * @param  {object} params.media - Media object
+     * @param  {string} params.media.mimeType - Media mime-type
+     * @param  {string|object} params.media.body - Media body contents
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/mirror/v1/timeline/{id}',
+          method: 'PUT'
+        },
+        params: params,
+        mediaUrl: 'https://www.googleapis.com/upload/mirror/v1/timeline/{id}',
+        requiredParams: ['id'],
+        pathParams: ['id'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    attachments: {
+
+      /**
+       * mirror.timeline.attachments.delete
+       *
+       * @desc Deletes an attachment from a timeline item.
+       *
+       * @alias mirror.timeline.attachments.delete
+       * @memberOf! mirror(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.attachmentId - The ID of the attachment.
+       * @param  {string} params.itemId - The ID of the timeline item the attachment belongs to.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/mirror/v1/timeline/{itemId}/attachments/{attachmentId}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['itemId', 'attachmentId'],
+          pathParams: ['attachmentId', 'itemId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * mirror.timeline.attachments.get
+       *
+       * @desc Retrieves an attachment on a timeline item by item ID and attachment ID.
+       *
+       * @alias mirror.timeline.attachments.get
+       * @memberOf! mirror(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.attachmentId - The ID of the attachment.
+       * @param  {string} params.itemId - The ID of the timeline item the attachment belongs to.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/mirror/v1/timeline/{itemId}/attachments/{attachmentId}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['itemId', 'attachmentId'],
+          pathParams: ['attachmentId', 'itemId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * mirror.timeline.attachments.insert
+       *
+       * @desc Adds a new attachment to a timeline item.
+       *
+       * @alias mirror.timeline.attachments.insert
+       * @memberOf! mirror(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.itemId - The ID of the timeline item the attachment belongs to.
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      insert: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/mirror/v1/timeline/{itemId}/attachments',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/mirror/v1/timeline/{itemId}/attachments',
+          requiredParams: ['itemId'],
+          pathParams: ['itemId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * mirror.timeline.attachments.list
+       *
+       * @desc Returns a list of attachments for a timeline item.
+       *
+       * @alias mirror.timeline.attachments.list
+       * @memberOf! mirror(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.itemId - The ID of the timeline item whose attachments should be listed.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/mirror/v1/timeline/{itemId}/attachments',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['itemId'],
+          pathParams: ['itemId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    }
+  };
+}
+
+/**
+ * Exports Mirror object
+ * @type Mirror
+ */
+module.exports = Mirror;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

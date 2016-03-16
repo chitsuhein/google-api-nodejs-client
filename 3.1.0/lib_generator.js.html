@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: lib/generator.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: lib/generator.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2014 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use strict';
+
+var DefaultTransporter = require('../lib/transporters');
+var async = require('async');
+var swig = require('swig');
+var beautify = require('js-beautify').js_beautify;
+var path = require('path');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
+var url = require('url');
+var argv = require('minimist')(process.argv.slice(2));
+var args = argv._;
+
+var DISCOVERY_URL = argv['discovery-url'] ? argv['discovery-url'] : (
+  args.length ? args[0] : 'https://www.googleapis.com/discovery/v1/apis/'
+);
+
+var API_INDEX = './apis/index.js';
+var API_INDEX_TEMPLATE = './templates/api-index.js';
+var API_TEMPLATE = './templates/api-endpoint.js';
+var BEAUTIFY_OPTIONS = {
+  'indent_size': 2,
+  'indent_char': ' ',
+  'indent_level': 0,
+  'indent_with_tabs': false,
+  'preserve_newlines': true,
+  'max_preserve_newlines': 2,
+  'jslint_happy': false,
+  'brace_style': 'collapse',
+  'keep_array_indentation': false,
+  'keep_function_indentation': false,
+  'space_before_conditional': true,
+  'break_chained_methods': false,
+  'eval_code': false,
+  'unescape_strings': false,
+  'wrap_line_length': 0
+};
+var RESERVED_PARAMS = ['resource', 'media', 'auth'];
+var templateContents = fs.readFileSync(API_TEMPLATE, { encoding: 'utf8' });
+var indexTemplContents = fs.readFileSync(API_INDEX_TEMPLATE, { encoding: 'utf8' });
+var transporter = new DefaultTransporter();
+
+/**
+ * Build a string used to create a URL from the discovery doc provided URL.
+ * @param  {String} input URL to build from
+ * @return {String}       Resulting built URL
+ */
+function buildurl(input) {
+  return ('\'' + input + '\'')
+    // No * symbols
+    .replace(/\*/g, '')
+    // No + symbols
+    .replace(/\+/g, '')
+    // replace double slashes with single slash (except in https://)
+    .replace(/([^:]\/)\/+/g, '$1')
+    // No {/ symbols
+    .replace(/\{\//g, '/{');
+}
+
+/**
+ * A multi-line string is turned into one line
+ * @param  {string} str String to process
+ * @return {string}     Single line string processed
+ */
+function oneLine(str) {
+  return str.replace(/\n/g, ' ');
+}
+
+/**
+ * Clean a string of comment tags
+ * @param  {string} str String to process
+ * @return {string}     Single line string processed
+ */
+function cleanComments(str) {
+  // Convert /* into /x and */ into x/
+  return str.replace(/\*\//g, 'x/').replace(/\/\*/g, '\/x');
+}
+
+/**
+ * Returns the list of names of APIS
+ * @param  {object} items Object of api endpoints
+ * @return {array}        Array of api names
+ */
+function getAPIs(items) {
+  var apis = [];
+  for (var i in items) {
+    apis.push(items[i].name);
+  }
+  return apis;
+}
+
+function getPathParams(params) {
+  var pathParams = [];
+  if (typeof params !== 'object') {
+    params = {};
+  }
+  Object.keys(params).forEach(function(key) {
+    if (params[key].location === 'path') {
+      pathParams.push(key);
+    }
+  });
+  return pathParams;
+}
+
+function getSafeParamName(param) {
+  if (RESERVED_PARAMS.indexOf(param) !== -1) {
+    return param + '_';
+  }
+  return param;
+}
+
+/**
+ * Disable auto-escaping its output
+ * @type {Boolean}
+ */
+buildurl.safe = true;
+swig.setFilter('buildurl', buildurl);
+swig.setFilter('getAPIs', getAPIs);
+swig.setFilter('oneLine', oneLine);
+swig.setFilter('cleanComments', cleanComments);
+swig.setFilter('getPathParams', getPathParams);
+swig.setFilter('getSafeParamName', getSafeParamName);
+swig.setDefaults({ loader: swig.loaders.fs(path.join(__dirname, '..', 'templates'))});
+
+/**
+ * Handle error object with callback
+ * @param  {Error}   err      Error object to return in callback
+ * @param  {Function=} callback Optional callback function
+ */
+function handleError(err, callback) {
+  if (callback &amp;&amp; typeof callback === 'function') {
+    callback(err, null);
+  }
+}
+
+/**
+ * Generator for generating API endpoints
+ * @param {object} options Options for generation
+ * @this {Generator}
+ */
+function Generator(options) {
+  this.options = options || {};
+}
+
+/**
+ * Log output of generator
+ * Works just like console.log
+ */
+Generator.prototype.log = function() {
+  if (this.options &amp;&amp; this.options.debug) {
+    console.log.apply(this, arguments);
+  }
+};
+
+/**
+ * Generate all APIs
+ * @param {function} callback Callback when all APIs have been generated
+ * @throws {Error} If there is an error generating any of the APIs
+ */
+Generator.prototype.generateAllAPIs = function(callback) {
+  var that = this;
+  var headers = this.options.includePrivate ? {} : { 'X-User-Ip': '0.0.0.0' };
+  transporter.request({
+    uri: DISCOVERY_URL,
+    headers: headers
+  }, function(err, resp) {
+    if (err) {
+      return handleError(err, callback);
+    }
+    var apis = resp.items;
+
+    async.each(
+      apis,
+      function(api, next) {
+        that.log('Generating API for %s...', api.id);
+        that.generateAPI(api.discoveryRestUrl, next);
+      },
+      callback
+    );
+  });
+};
+
+/**
+ * Generate API file given discovery URL
+ * @param  {String} apiDiscoveryUrl URL or filename of discovery doc for API
+ * @param {function} callback Callback when successful write of API
+ * @throws {Error} If there is an error generating the API.
+ */
+Generator.prototype.generateAPI = function(apiDiscoveryUrl, callback) {
+
+  function _generate(err, resp) {
+    var result = swig.render(templateContents, { locals: resp });
+    var contents = beautify(result, BEAUTIFY_OPTIONS);
+
+    // e.g. apis/drive/v2.js
+    var exportFilename = path.join('apis', resp.name, resp.version + '.js');
+    mkdirp(path.dirname(exportFilename), function(err) {
+      if (err) {
+        return handleError(err, callback);
+      }
+      fs.writeFile(exportFilename, contents, function(err) {
+        if (err) {
+          return handleError(err, callback);
+        } else if (callback &amp;&amp; typeof callback === 'function') {
+          callback(null, exportFilename);
+          return;
+        }
+      });
+    });
+  }
+
+  var parts = url.parse(apiDiscoveryUrl);
+
+  if (apiDiscoveryUrl &amp;&amp; !parts.protocol) {
+    this.log('Reading from file ' + apiDiscoveryUrl);
+    try {
+      return _generate(null, JSON.parse(fs.readFileSync(apiDiscoveryUrl, {
+        encoding: 'utf-8'
+      })));
+    } catch (err) {
+      return handleError(err, callback);
+    }
+  } else {
+    this.log('Requesting ' + apiDiscoveryUrl);
+    transporter.request({
+      uri: apiDiscoveryUrl
+    }, _generate);
+  }
+};
+
+/**
+ * Generate the API index file
+ * @param  {Function} callback Callback called with err, filename
+ * @throws {Error} If there is an error generating the index file.
+ */
+Generator.prototype.generateIndex = function(callback) {
+  var headers = this.options.includePrivate ? {} : { 'X-User-Ip': '0.0.0.0' };
+  transporter.request({
+    uri: DISCOVERY_URL,
+    headers: headers
+  }, function(err, resp) {
+    if (err) {
+      return handleError(err, callback);
+    }
+    var contents = beautify(swig.render(indexTemplContents, { locals: resp }), BEAUTIFY_OPTIONS);
+    mkdirp(path.dirname(API_INDEX), function(err) {
+      if (err) {
+        return handleError(err, callback);
+      }
+      fs.writeFile(API_INDEX, contents, function(err) {
+        if (err) {
+          return handleError(err, callback);
+        }
+        this.log('API index generated in ' + API_INDEX);
+        if (callback &amp;&amp; typeof callback === 'function') {
+          callback(null, API_INDEX);
+          return;
+        }
+      }.bind(this));
+    }.bind(this));
+  }.bind(this));
+};
+
+/**
+ * Export the Generator object
+ * @type {Generator}
+ */
+module.exports = Generator;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

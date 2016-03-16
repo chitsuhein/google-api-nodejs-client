@@ -1,0 +1,5029 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>googleapis Namespace: safebrowsing</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">googleapis</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="acceleratedmobilepageurl.html">acceleratedmobilepageurl(v1)</a></li><li><a href="adexchangebuyer2.html">adexchangebuyer2(v2beta1)</a></li><li><a href="adexchangebuyer.html">adexchangebuyer(v1.2)</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer(v1.3)</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer(v1.4)</a></li><li><a href="adexchangeseller.html">adexchangeseller(v1)</a></li><li><a href="adexchangeseller_.html">adexchangeseller(v1.1)</a></li><li><a href="adexchangeseller__.html">adexchangeseller(v2.0)</a></li><li><a href="admin.html">admin(datatransfer_v1)</a></li><li><a href="admin_.html">admin(directory_v1)</a></li><li><a href="admin__.html">admin(reports_v1)</a></li><li><a href="adsense.html">adsense(v1.2)</a></li><li><a href="adsense_.html">adsense(v1.3)</a></li><li><a href="adsense__.html">adsense(v1.4)</a></li><li><a href="adsensehost.html">adsensehost(v4.1)</a></li><li><a href="analytics.html">analytics(v2.4)</a></li><li><a href="analytics_.html">analytics(v3)</a></li><li><a href="analyticsreporting.html">analyticsreporting(v4)</a></li><li><a href="androidenterprise.html">androidenterprise(v1)</a></li><li><a href="androidpublisher.html">androidpublisher(v1)</a></li><li><a href="androidpublisher_.html">androidpublisher(v1.1)</a></li><li><a href="androidpublisher__.html">androidpublisher(v2)</a></li><li><a href="appengine.html">appengine(v1)</a></li><li><a href="appengine_.html">appengine(v1beta4)</a></li><li><a href="appengine__.html">appengine(v1beta5)</a></li><li><a href="appsactivity.html">appsactivity(v1)</a></li><li><a href="appstate.html">appstate(v1)</a></li><li><a href="bigquery.html">bigquery(v2)</a></li><li><a href="blogger.html">blogger(v2)</a></li><li><a href="blogger_.html">blogger(v3)</a></li><li><a href="books.html">books(v1)</a></li><li><a href="calendar.html">calendar(v3)</a></li><li><a href="civicinfo.html">civicinfo(v2)</a></li><li><a href="classroom.html">classroom(v1)</a></li><li><a href="cloudbilling.html">cloudbilling(v1)</a></li><li><a href="cloudbuild.html">cloudbuild(v1)</a></li><li><a href="clouddebugger.html">clouddebugger(v2)</a></li><li><a href="clouderrorreporting.html">clouderrorreporting(v1beta1)</a></li><li><a href="cloudmonitoring.html">cloudmonitoring(v2beta2)</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager(v1)</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager(v1beta1)</a></li><li><a href="cloudtrace.html">cloudtrace(v1)</a></li><li><a href="clouduseraccounts.html">clouduseraccounts(alpha)</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts(beta)</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts(vm_alpha)</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts(vm_beta)</a></li><li><a href="compute.html">compute(alpha)</a></li><li><a href="compute_.html">compute(beta)</a></li><li><a href="compute__.html">compute(v1)</a></li><li><a href="consumersurveys.html">consumersurveys(v2)</a></li><li><a href="container.html">container(v1)</a></li><li><a href="content.html">content(v2)</a></li><li><a href="content_.html">content(v2sandbox)</a></li><li><a href="customsearch.html">customsearch(v1)</a></li><li><a href="dataflow.html">dataflow(v1b3)</a></li><li><a href="dataproc.html">dataproc(v1)</a></li><li><a href="dataproc_.html">dataproc(v1alpha1)</a></li><li><a href="dataproc__.html">dataproc(v1beta1)</a></li><li><a href="datastore.html">datastore(v1)</a></li><li><a href="datastore_.html">datastore(v1beta1)</a></li><li><a href="datastore__.html">datastore(v1beta2)</a></li><li><a href="datastore___.html">datastore(v1beta3)</a></li><li><a href="deploymentmanager.html">deploymentmanager(v2)</a></li><li><a href="dfareporting.html">dfareporting(v2.2)</a></li><li><a href="dfareporting_.html">dfareporting(v2.3)</a></li><li><a href="dfareporting__.html">dfareporting(v2.4)</a></li><li><a href="dfareporting___.html">dfareporting(v2.5)</a></li><li><a href="dfareporting____.html">dfareporting(v2.5beta1)</a></li><li><a href="dfareporting_____.html">dfareporting(v2.6)</a></li><li><a href="discovery.html">discovery(v1)</a></li><li><a href="dns.html">dns(v1)</a></li><li><a href="dns_.html">dns(v2beta1)</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager(v1)</a></li><li><a href="doubleclicksearch.html">doubleclicksearch(v2)</a></li><li><a href="drive.html">drive(v2)</a></li><li><a href="drive_.html">drive(v3)</a></li><li><a href="firebaserules.html">firebaserules(v1)</a></li><li><a href="fitness.html">fitness(v1)</a></li><li><a href="fusiontables.html">fusiontables(v1)</a></li><li><a href="fusiontables_.html">fusiontables(v2)</a></li><li><a href="games.html">games(v1)</a></li><li><a href="gamesConfiguration.html">gamesConfiguration(v1configuration)</a></li><li><a href="gamesManagement.html">gamesManagement(v1management)</a></li><li><a href="genomics.html">genomics(v1)</a></li><li><a href="genomics_.html">genomics(v1alpha2)</a></li><li><a href="genomics__.html">genomics(v1beta2)</a></li><li><a href="gmail.html">gmail(v1)</a></li><li><a href="groupsmigration.html">groupsmigration(v1)</a></li><li><a href="groupssettings.html">groupssettings(v1)</a></li><li><a href="iam.html">iam(v1)</a></li><li><a href="identitytoolkit.html">identitytoolkit(v3)</a></li><li><a href="kgsearch.html">kgsearch(v1)</a></li><li><a href="language.html">language(v1beta1)</a></li><li><a href="licensing.html">licensing(v1)</a></li><li><a href="logging.html">logging(v2beta1)</a></li><li><a href="mirror.html">mirror(v1)</a></li><li><a href="monitoring.html">monitoring(v3)</a></li><li><a href="oauth2.html">oauth2(v1)</a></li><li><a href="oauth2_.html">oauth2(v2)</a></li><li><a href="pagespeedonline.html">pagespeedonline(v1)</a></li><li><a href="pagespeedonline_.html">pagespeedonline(v2)</a></li><li><a href="partners.html">partners(v2)</a></li><li><a href="people.html">people(v1)</a></li><li><a href="playmoviespartner.html">playmoviespartner(v1)</a></li><li><a href="plus.html">plus(v1)</a></li><li><a href="plusDomains.html">plusDomains(v1)</a></li><li><a href="prediction.html">prediction(v1.2)</a></li><li><a href="prediction_.html">prediction(v1.3)</a></li><li><a href="prediction__.html">prediction(v1.4)</a></li><li><a href="prediction___.html">prediction(v1.5)</a></li><li><a href="prediction____.html">prediction(v1.6)</a></li><li><a href="proximitybeacon.html">proximitybeacon(v1beta1)</a></li><li><a href="pubsub.html">pubsub(v1)</a></li><li><a href="pubsub_.html">pubsub(v1beta1a)</a></li><li><a href="pubsub__.html">pubsub(v1beta2)</a></li><li><a href="qpxExpress.html">qpxExpress(v1)</a></li><li><a href="replicapool.html">replicapool(v1beta1)</a></li><li><a href="replicapool_.html">replicapool(v1beta2)</a></li><li><a href="replicapoolupdater.html">replicapoolupdater(v1beta1)</a></li><li><a href="reseller.html">reseller(v1)</a></li><li><a href="resourceviews.html">resourceviews(v1beta1)</a></li><li><a href="resourceviews_.html">resourceviews(v1beta2)</a></li><li><a href="runtimeconfig.html">runtimeconfig(v1beta1)</a></li><li><a href="safebrowsing.html">safebrowsing(v4)</a></li><li><a href="script.html">script(v1)</a></li><li><a href="servicecontrol.html">servicecontrol(v1)</a></li><li><a href="servicemanagement.html">servicemanagement(v1)</a></li><li><a href="sheets.html">sheets(v4)</a></li><li><a href="siteVerification.html">siteVerification(v1)</a></li><li><a href="spectrum.html">spectrum(v1explorer)</a></li><li><a href="speech.html">speech(v1beta1)</a></li><li><a href="sqladmin.html">sqladmin(v1beta3)</a></li><li><a href="sqladmin_.html">sqladmin(v1beta4)</a></li><li><a href="storage.html">storage(v1)</a></li><li><a href="storage_.html">storage(v1beta1)</a></li><li><a href="storage__.html">storage(v1beta2)</a></li><li><a href="storagetransfer.html">storagetransfer(v1)</a></li><li><a href="tagmanager.html">tagmanager(v1)</a></li><li><a href="taskqueue.html">taskqueue(v1beta1)</a></li><li><a href="taskqueue_.html">taskqueue(v1beta2)</a></li><li><a href="tasks.html">tasks(v1)</a></li><li><a href="toolresults.html">toolresults(v1beta3)</a></li><li><a href="translate.html">translate(v2)</a></li><li><a href="urlshortener.html">urlshortener(v1)</a></li><li><a href="vision.html">vision(v1)</a></li><li><a href="webfonts.html">webfonts(v1)</a></li><li><a href="webmasters.html">webmasters(v3)</a></li><li><a href="youtube.html">youtube(v3)</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics(v1)</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics(v1beta1)</a></li><li><a href="youtubereporting.html">youtubereporting(v1)</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-googleapis.html">googleapis</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="GoogleApis.html">GoogleApis</a></li><li><a href="GoogleAuth.html">GoogleAuth</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Namespace: safebrowsing</h1>
+<section>
+
+<header>
+    
+        <h2>
+        safebrowsing
+        
+            <sup class="variation">v4</sup>
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Safe Browsing APIs</p>
+<p>Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.</p></div>
+        
+
+        
+<dl class="details">
+    
+
+	
+	<dt class="tag-version method-doc-label method-doc-details-label">Version:</dt>
+	<dd class="tag-version">
+		<ul class="dummy">
+			<li>v4</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+            <h3>Example</h3>
+            
+    <pre class="sunlight-highlight-javascript">var google = require(&#x27;googleapis&#x27;);
+var safebrowsing = google.safebrowsing(&#x27;v4&#x27;);</pre>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".safebrowsing.fullHashes.find"><span class="type-signature">&lt;static> </span>safebrowsing.fullHashes.find(params [, options], callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Finds the full hashes that match the requested hash prefixes.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Parameters for request</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.FindFullHashesRequest">safebrowsing(v4).FindFullHashesRequest</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Request body data</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optionally override request options, such as <code>url</code>, <code>method</code>, and <code>encoding</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The callback that handles the response.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Request object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".safebrowsing.threatLists.list"><span class="type-signature">&lt;static> </span>safebrowsing.threatLists.list( [params] [, options], callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Lists the Safe Browsing threat lists available for download.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Parameters for request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optionally override request options, such as <code>url</code>, <code>method</code>, and <code>encoding</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The callback that handles the response.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Request object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".safebrowsing.threatListUpdates.fetch"><span class="type-signature">&lt;static> </span>safebrowsing.threatListUpdates.fetch(params [, options], callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fetches the most recent threat list updates. A client can request updates for multiple lists at once.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Parameters for request</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.FetchThreatListUpdatesRequest">safebrowsing(v4).FetchThreatListUpdatesRequest</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Request body data</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optionally override request options, such as <code>url</code>, <code>method</code>, and <code>encoding</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The callback that handles the response.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Request object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".safebrowsing.threatMatches.find"><span class="type-signature">&lt;static> </span>safebrowsing.threatMatches.find(params [, options], callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Finds the threat entries that match the Safe Browsing lists.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Parameters for request</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.FindThreatMatchesRequest">safebrowsing(v4).FindThreatMatchesRequest</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Request body data</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Optionally override request options, such as <code>url</code>, <code>method</code>, and <code>encoding</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The callback that handles the response.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Request object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id=".Checksum">
+    <h4 id=".Checksum">Checksum</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sha256</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ClientInfo">
+    <h4 id=".ClientInfo">ClientInfo</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>clientId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clientVersion</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The version of the client implementation.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".Constraints">
+    <h4 id=".Constraints">Constraints</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>maxUpdateEntries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The maximum size in number of entries. The update will not contain more entries than this value. This should be a power of 2 between 2<strong>10 and 2</strong>20. If zero, no update size limit is set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxDatabaseEntries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sets the maximum number of entries that the client is willing to have in the local database. This should be a power of 2 between 2<strong>10 and 2</strong>20. If zero, no database size limit is set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>region</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>supportedCompressions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The compression types supported by the client.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FetchThreatListUpdatesRequest">
+    <h4 id=".FetchThreatListUpdatesRequest">FetchThreatListUpdatesRequest</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ClientInfo">safebrowsing(v4).ClientInfo</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The client metadata.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listUpdateRequests</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ListUpdateRequest">safebrowsing(v4).ListUpdateRequest</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The requested threat list updates.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FetchThreatListUpdatesResponse">
+    <h4 id=".FetchThreatListUpdatesResponse">FetchThreatListUpdatesResponse</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>listUpdateResponses</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ListUpdateResponse">safebrowsing(v4).ListUpdateResponse</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The list updates requested by the clients.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minimumWaitDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The minimum duration the client must wait before issuing any update request. If this field is not set clients may update as soon as they want.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FindFullHashesRequest">
+    <h4 id=".FindFullHashesRequest">FindFullHashesRequest</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ClientInfo">safebrowsing(v4).ClientInfo</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The client metadata.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clientStates</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current client states for each of the client's local threat lists.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ThreatInfo">safebrowsing(v4).ThreatInfo</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The lists and hashes to be checked.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FindFullHashesResponse">
+    <h4 id=".FindFullHashesResponse">FindFullHashesResponse</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>matches</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatMatch">safebrowsing(v4).ThreatMatch</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The full hashes that matched the requested prefixes.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minimumWaitDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The minimum duration the client must wait before issuing any find hashes request. If this field is not set, clients can issue a request as soon as they want.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>negativeCacheDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>For requested entities that did not match the threat list, how long to cache the response.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FindThreatMatchesRequest">
+    <h4 id=".FindThreatMatchesRequest">FindThreatMatchesRequest</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ClientInfo">safebrowsing(v4).ClientInfo</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The client metadata.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ThreatInfo">safebrowsing(v4).ThreatInfo</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The lists and entries to be checked for matches.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".FindThreatMatchesResponse">
+    <h4 id=".FindThreatMatchesResponse">FindThreatMatchesResponse</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>matches</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatMatch">safebrowsing(v4).ThreatMatch</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat list matches.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ListThreatListsResponse">
+    <h4 id=".ListThreatListsResponse">ListThreatListsResponse</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatLists</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatListDescriptor">safebrowsing(v4).ThreatListDescriptor</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The lists available for download by the client.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ListUpdateRequest">
+    <h4 id=".ListUpdateRequest">ListUpdateRequest</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The type of threat posed by entries present in the list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The type of platform at risk by entries present in the list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The types of entries present in the list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>state</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current state of the client for the requested list (the encrypted client state that was received from the last successful list update).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>constraints</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.Constraints">safebrowsing(v4).Constraints</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The constraints associated with this request.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ListUpdateResponse">
+    <h4 id=".ListUpdateResponse">ListUpdateResponse</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat type for which data is returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The format of the threats.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The platform type for which data is returned.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>responseType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The type of response. This may indicate that an action is required by the client when the response is received.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>additions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatEntrySet">safebrowsing(v4).ThreatEntrySet</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A set of entries to add to a local threat type's list. Repeated to allow for a combination of compressed and raw data to be sent in a single response.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>removals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatEntrySet">safebrowsing(v4).ThreatEntrySet</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A set of entries to remove from a local threat type's list. Repeated for the same reason as above.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newClientState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The new client state, in encrypted format. Opaque to clients.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>checksum</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.Checksum">safebrowsing(v4).Checksum</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided update. If the client state doesn't match the expected state, the client must disregard this update and retry later.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".MetadataEntry">
+    <h4 id=".MetadataEntry">MetadataEntry</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The metadata entry key.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The metadata entry value.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".RawHashes">
+    <h4 id=".RawHashes">RawHashes</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefixSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of bytes for each prefix encoded below. This field can be anywhere from 4 (shortest prefix) to 32 (full SHA256 hash).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rawHashes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The hashes, all concatenated into one long string. Each hash has a prefix size of |prefix_size| above. Hashes are sorted in lexicographic order.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".RawIndices">
+    <h4 id=".RawIndices">RawIndices</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>indices</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;integer></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The indices to remove from a lexicographically-sorted local list.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".RiceDeltaEncoding">
+    <h4 id=".RiceDeltaEncoding">RiceDeltaEncoding</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>firstValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>riceParameter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Golomb-Rice parameter, which is a number between 2 and 28. This field is missing (that is, zero) if <code>num_entries</code> is zero.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>numEntries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be stored in <code>first_value</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>encodedData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The encoded deltas that are encoded using the Golomb-Rice coder.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatEntry">
+    <h4 id=".ThreatEntry">ThreatEntry</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>hash</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. This field is in binary format.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>digest</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The digest of an executable in SHA256 format. The API supports both binary and hex digests.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatEntryMetadata">
+    <h4 id=".ThreatEntryMetadata">ThreatEntryMetadata</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>entries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.MetadataEntry">safebrowsing(v4).MetadataEntry</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The metadata entries.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatEntrySet">
+    <h4 id=".ThreatEntrySet">ThreatEntrySet</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>compressionType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The compression type for the entries in this set.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rawHashes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.RawHashes">safebrowsing(v4).RawHashes</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The raw SHA256-formatted entries.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rawIndices</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.RawIndices">safebrowsing(v4).RawIndices</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The raw removal indices for a local list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>riceHashes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.RiceDeltaEncoding">safebrowsing(v4).RiceDeltaEncoding</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>riceIndices</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.RiceDeltaEncoding">safebrowsing(v4).RiceDeltaEncoding</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatInfo">
+    <h4 id=".ThreatInfo">ThreatInfo</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat types to be checked.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The platform types to be checked.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The entry types to be checked.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="safebrowsing.html#.ThreatEntry">safebrowsing(v4).ThreatEntry</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat entries to be checked.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatListDescriptor">
+    <h4 id=".ThreatListDescriptor">ThreatListDescriptor</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat type posed by the list's entries.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The platform type targeted by the list's entries.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The entry types contained in the list.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id=".ThreatMatch">
+    <h4 id=".ThreatMatch">ThreatMatch</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>threatType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat type matching this threat.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The platform type matching this threat.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat entry type matching this threat.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ThreatEntry">safebrowsing(v4).ThreatEntry</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The threat matching this threat.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threatEntryMetadata</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="safebrowsing.html#.ThreatEntryMetadata">safebrowsing(v4).ThreatEntryMetadata</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Optional metadata associated with this threat.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cacheDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The cache lifetime for the returned match. Clients must not cache this response for more than this duration to avoid false positives.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+
+<footer>
+
+
+	<span class="copyright">
+	google-api-nodejs-client Copyright © 2012-2016 Google Inc.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a>
+	
+		on 2016-09-12T15:31:14-07:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+
+</body>
+</html>

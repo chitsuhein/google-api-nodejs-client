@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/cloudresourcemanager/v1beta1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/cloudresourcemanager/v1beta1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Google Cloud Resource Manager API
+ *
+ * @classdesc The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.
+ * @namespace cloudresourcemanager
+ * @version  v1beta1
+ * @variation v1beta1
+ * @this Cloudresourcemanager
+ * @param {object=} options Options for Cloudresourcemanager
+ */
+function Cloudresourcemanager(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.projects = {
+
+    /**
+     * cloudresourcemanager.projects.create
+     *
+     * @desc Creates a Project resource. Initially, the Project resource is owned by its creator exclusively. The creator can later grant permission to others to read or update the Project. Several APIs are activated automatically for the Project, including Google Cloud Storage.
+     *
+     * @alias cloudresourcemanager.projects.create
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    create: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.list
+     *
+     * @desc Lists Projects that are visible to the user and satisfy the specified filter. This method returns Projects in an unspecified order. New Projects do not necessarily appear at the end of the list.
+     *
+     * @alias cloudresourcemanager.projects.list
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {string=} params.pageToken - A pagination token returned from a previous call to ListProjects that indicates from where listing should continue. Optional.
+     * @param  {integer=} params.pageSize - The maximum number of Projects to return in the response. The server can return fewer Projects than requested. If unspecified, server picks an appropriate default. Optional.
+     * @param  {string=} params.filter - An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: + `name` + `id` + labels.key where *key* is the name of a label Some examples of using labels as filters: |Filter|Description| |------|-----------| |name:*|The project has a name.| |name:Howl|The project's name is `Howl` or `howl`.| |name:HOWL|Equivalent to above.| |NAME:howl|Equivalent to above.| |labels.color:*|The project has the label `color`.| |labels.color:red|The project's label `color` has the value `red`.| |labels.color:red label.size:big|The project's label `color` has the value `red` and its label `size` has the value `big`. Optional.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.get
+     *
+     * @desc Retrieves the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have read permissions for this Project.
+     *
+     * @alias cloudresourcemanager.projects.get
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.projectId - The Project ID (for example, `my-project-123`). Required.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{projectId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['projectId'],
+        pathParams: ['projectId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.update
+     *
+     * @desc Updates the attributes of the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have modify permissions for this Project.
+     *
+     * @alias cloudresourcemanager.projects.update
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.projectId - The project ID (for example, `my-project-123`). Required.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{projectId}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['projectId'],
+        pathParams: ['projectId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.delete
+     *
+     * @desc Marks the Project identified by the specified `project_id` (for example, `my-project-123`) for deletion. This method will only affect the Project if the following criteria are met: + The Project does not have a billing account associated with it. + The Project has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the lifecycle state changes to DELETE_IN_PROGRESS. Until the deletion completes, you can check the lifecycle state checked by retrieving the Project with GetProject, and the Project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the Project is not retrievable by the GetProject and ListProjects methods. The caller must have modify permissions for this Project.
+     *
+     * @alias cloudresourcemanager.projects.delete
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.projectId - The Project ID (for example, `foo-bar-123`). Required.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{projectId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['projectId'],
+        pathParams: ['projectId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.undelete
+     *
+     * @desc Restores the Project identified by the specified `project_id` (for example, `my-project-123`). You can only use this method for a Project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, as indicated by a lifecycle state of DELETE_IN_PROGRESS, the Project cannot be restored. The caller must have modify permissions for this Project.
+     *
+     * @alias cloudresourcemanager.projects.undelete
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.projectId - The project ID (for example, `foo-bar-123`). Required.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    undelete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{projectId}:undelete',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['projectId'],
+        pathParams: ['projectId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.getIamPolicy
+     *
+     * @desc Returns the IAM access control policy for the specified Project. Permission is denied if the policy or the resource does not exist.
+     *
+     * @alias cloudresourcemanager.projects.getIamPolicy
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy is being requested. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `getIamPolicy` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    getIamPolicy: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{resource}:getIamPolicy',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.setIamPolicy
+     *
+     * @desc Sets the IAM access control policy for the specified Project. Replaces any existing policy. The following constraints apply when using `setIamPolicy()`: + Project currently supports only `user:{emailid}` and `serviceAccount:{emailid}` members in a `Binding` of a `Policy`. + To be added as an `owner`, a user must be invited via Cloud Platform console and must accept the invitation. + Members cannot be added to more than one role in the same policy. + There must be at least one owner who has accepted the Terms of Service (ToS) agreement in the policy. Calling `setIamPolicy()` to to remove the last ToS-accepted owner from the policy will fail. + Calling this method requires enabling the App Engine Admin API. Note: Removing service accounts from policies or changing their roles can render services completely inoperable. It is important to understand how the service account is being used before removing or updating its roles.
+     *
+     * @alias cloudresourcemanager.projects.setIamPolicy
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy is being specified. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `setIamPolicy` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    setIamPolicy: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{resource}:setIamPolicy',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.projects.testIamPermissions
+     *
+     * @desc Returns permissions that a caller has on the specified Project.
+     *
+     * @alias cloudresourcemanager.projects.testIamPermissions
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy detail is being requested. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `testIamPermissions` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    testIamPermissions: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/projects/{resource}:testIamPermissions',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.organizations = {
+
+    /**
+     * cloudresourcemanager.organizations.list
+     *
+     * @desc Lists Organization resources that are visible to the user and satisfy the specified filter. This method returns Organizations in an unspecified order. New Organizations do not necessarily appear at the end of the list.
+     *
+     * @alias cloudresourcemanager.organizations.list
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {integer=} params.pageSize - The maximum number of Organizations to return in the response. This field is optional.
+     * @param  {string=} params.pageToken - A pagination token returned from a previous call to `ListOrganizations` that indicates from where listing should continue. This field is optional.
+     * @param  {string=} params.filter - An optional query string used to filter the Organizations to return in the response. Filter rules are case-insensitive. Organizations may be filtered by `owner.directoryCustomerId` or by `domain`, where the domain is a Google for Work domain, for example: |Filter|Description| |------|-----------| |owner.directorycustomerid:123456789|Organizations with `owner.directory_customer_id` equal to `123456789`.| |domain:google.com|Organizations corresponding to the domain `google.com`.| This field is optional.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.organizations.get
+     *
+     * @desc Fetches an Organization resource identified by the specified `organization_id`.
+     *
+     * @alias cloudresourcemanager.organizations.get
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.organizationId - The id of the Organization resource to fetch.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations/{organizationId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['organizationId'],
+        pathParams: ['organizationId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.organizations.update
+     *
+     * @desc Updates an Organization resource identified by the specified `organization_id`.
+     *
+     * @alias cloudresourcemanager.organizations.update
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.organizationId - An immutable id for the Organization that is assigned on creation. This should be omitted when creating a new Organization. This field is read-only.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations/{organizationId}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['organizationId'],
+        pathParams: ['organizationId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.organizations.setIamPolicy
+     *
+     * @desc Sets the access control policy on an Organization resource. Replaces any existing policy.
+     *
+     * @alias cloudresourcemanager.organizations.setIamPolicy
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy is being specified. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `setIamPolicy` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    setIamPolicy: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations/{resource}:setIamPolicy',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.organizations.getIamPolicy
+     *
+     * @desc Gets the access control policy for an Organization resource. May be empty if no such policy or resource exists.
+     *
+     * @alias cloudresourcemanager.organizations.getIamPolicy
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy is being requested. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `getIamPolicy` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    getIamPolicy: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations/{resource}:getIamPolicy',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * cloudresourcemanager.organizations.testIamPermissions
+     *
+     * @desc Returns permissions that a caller has on the specified Organization.
+     *
+     * @alias cloudresourcemanager.organizations.testIamPermissions
+     * @memberOf! cloudresourcemanager(v1beta1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.resource_ - REQUIRED: The resource for which the policy detail is being requested. `resource` is usually specified as a path, such as `projects/xprojectx/zones/xzonex/disks/xdisk*`. The format for the path specified in this value is resource specific and is specified in the `testIamPermissions` documentation.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    testIamPermissions: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://cloudresourcemanager.googleapis.com/v1beta1/organizations/{resource}:testIamPermissions',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['resource'],
+        pathParams: ['resource'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+}
+
+/**
+ * Exports Cloudresourcemanager object
+ * @type Cloudresourcemanager
+ */
+module.exports = Cloudresourcemanager;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

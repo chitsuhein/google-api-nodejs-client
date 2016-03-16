@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/pubsub/v1beta2.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/pubsub/v1beta2.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Google Cloud Pub/Sub API
+ *
+ * @classdesc Provides reliable, many-to-many, asynchronous messaging between applications.
+ * @namespace pubsub
+ * @version  v1beta2
+ * @variation v1beta2
+ * @this Pubsub
+ * @param {object=} options Options for Pubsub
+ */
+function Pubsub(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.projects = {
+
+    topics: {
+
+      /**
+       * pubsub.projects.topics.setIamPolicy
+       *
+       * @desc Sets the access control policy on the specified resource. Replaces any existing policy.
+       *
+       * @alias pubsub.projects.topics.setIamPolicy
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy is being specified. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective SetIamPolicy rpc.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      setIamPolicy: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:setIamPolicy',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.getIamPolicy
+       *
+       * @desc Gets the access control policy for a `resource`. Is empty if the policy or the resource does not exist.
+       *
+       * @alias pubsub.projects.topics.getIamPolicy
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy is being requested. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective GetIamPolicy rpc.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      getIamPolicy: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:getIamPolicy',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.testIamPermissions
+       *
+       * @desc Returns permissions that a caller has on the specified resource.
+       *
+       * @alias pubsub.projects.topics.testIamPermissions
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy detail is being requested. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective TestIamPermissions rpc.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      testIamPermissions: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:testIamPermissions',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.create
+       *
+       * @desc Creates the given topic with the given name.
+       *
+       * @alias pubsub.projects.topics.create
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.name - The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      create: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{name}',
+            method: 'PUT'
+          },
+          params: params,
+          requiredParams: ['name'],
+          pathParams: ['name'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.publish
+       *
+       * @desc Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist. The message payload must not be empty; it must contain either a non-empty data field, or at least one attribute.
+       *
+       * @alias pubsub.projects.topics.publish
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.topic - The messages in the request will be published on this topic.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      publish: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{topic}:publish',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['topic'],
+          pathParams: ['topic'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.get
+       *
+       * @desc Gets the configuration of a topic.
+       *
+       * @alias pubsub.projects.topics.get
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.topic - The name of the topic to get.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{topic}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['topic'],
+          pathParams: ['topic'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.list
+       *
+       * @desc Lists matching topics.
+       *
+       * @alias pubsub.projects.topics.list
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.project - The name of the cloud project that topics belong to.
+       * @param  {integer=} params.pageSize - Maximum number of topics to return.
+       * @param  {string=} params.pageToken - The value returned by the last `ListTopicsResponse`; indicates that this is a continuation of a prior `ListTopics` call, and that the system should return the next page of data.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{project}/topics',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['project'],
+          pathParams: ['project'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.topics.delete
+       *
+       * @desc Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`.
+       *
+       * @alias pubsub.projects.topics.delete
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.topic - Name of the topic to delete.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{topic}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['topic'],
+          pathParams: ['topic'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      subscriptions: {
+
+        /**
+         * pubsub.projects.topics.subscriptions.list
+         *
+         * @desc Lists the name of the subscriptions for this topic.
+         *
+         * @alias pubsub.projects.topics.subscriptions.list
+         * @memberOf! pubsub(v1beta2)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.topic - The name of the topic that subscriptions are attached to.
+         * @param  {integer=} params.pageSize - Maximum number of subscription names to return.
+         * @param  {string=} params.pageToken - The value returned by the last `ListTopicSubscriptionsResponse`; indicates that this is a continuation of a prior `ListTopicSubscriptions` call, and that the system should return the next page of data.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        list: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://pubsub.googleapis.com/v1beta2/{topic}/subscriptions',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['topic'],
+            pathParams: ['topic'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        }
+      }
+    },
+
+    subscriptions: {
+
+      /**
+       * pubsub.projects.subscriptions.setIamPolicy
+       *
+       * @desc Sets the access control policy on the specified resource. Replaces any existing policy.
+       *
+       * @alias pubsub.projects.subscriptions.setIamPolicy
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy is being specified. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective SetIamPolicy rpc.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      setIamPolicy: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:setIamPolicy',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.getIamPolicy
+       *
+       * @desc Gets the access control policy for a `resource`. Is empty if the policy or the resource does not exist.
+       *
+       * @alias pubsub.projects.subscriptions.getIamPolicy
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy is being requested. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective GetIamPolicy rpc.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      getIamPolicy: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:getIamPolicy',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.testIamPermissions
+       *
+       * @desc Returns permissions that a caller has on the specified resource.
+       *
+       * @alias pubsub.projects.subscriptions.testIamPermissions
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.resource_ - REQUIRED: The resource for which policy detail is being requested. `resource` is usually specified as a path, such as, `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path specified in this value is resource specific and is specified in the documentation for the respective TestIamPermissions rpc.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      testIamPermissions: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{resource}:testIamPermissions',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['resource'],
+          pathParams: ['resource'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.create
+       *
+       * @desc Creates a subscription to a given topic for a given subscriber. If the subscription already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic.
+       *
+       * @alias pubsub.projects.subscriptions.create
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.name - The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      create: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{name}',
+            method: 'PUT'
+          },
+          params: params,
+          requiredParams: ['name'],
+          pathParams: ['name'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.get
+       *
+       * @desc Gets the configuration details of a subscription.
+       *
+       * @alias pubsub.projects.subscriptions.get
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The name of the subscription to get.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.list
+       *
+       * @desc Lists matching subscriptions.
+       *
+       * @alias pubsub.projects.subscriptions.list
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.project - The name of the cloud project that subscriptions belong to.
+       * @param  {integer=} params.pageSize - Maximum number of subscriptions to return.
+       * @param  {string=} params.pageToken - The value returned by the last `ListSubscriptionsResponse`; indicates that this is a continuation of a prior `ListSubscriptions` call, and that the system should return the next page of data.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{project}/subscriptions',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['project'],
+          pathParams: ['project'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.delete
+       *
+       * @desc Deletes an existing subscription. All pending messages in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription, or its topic unless the same topic is specified.
+       *
+       * @alias pubsub.projects.subscriptions.delete
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The subscription to delete.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.modifyAckDeadline
+       *
+       * @desc Modifies the ack deadline for a specific message. This method is useful to indicate that more time is needed to process a message by the subscriber, or to make the message available for redelivery if the processing was interrupted.
+       *
+       * @alias pubsub.projects.subscriptions.modifyAckDeadline
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The name of the subscription.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      modifyAckDeadline: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}:modifyAckDeadline',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.acknowledge
+       *
+       * @desc Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error.
+       *
+       * @alias pubsub.projects.subscriptions.acknowledge
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The subscription whose message is being acknowledged.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      acknowledge: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}:acknowledge',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.pull
+       *
+       * @desc Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The server may return `UNAVAILABLE` if there are too many concurrent pull requests pending for the given subscription.
+       *
+       * @alias pubsub.projects.subscriptions.pull
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The subscription from which messages should be pulled.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      pull: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}:pull',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * pubsub.projects.subscriptions.modifyPushConfig
+       *
+       * @desc Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`.
+       *
+       * @alias pubsub.projects.subscriptions.modifyPushConfig
+       * @memberOf! pubsub(v1beta2)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.subscription - The name of the subscription.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      modifyPushConfig: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://pubsub.googleapis.com/v1beta2/{subscription}:modifyPushConfig',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['subscription'],
+          pathParams: ['subscription'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    }
+  };
+}
+
+/**
+ * Exports Pubsub object
+ * @type Pubsub
+ */
+module.exports = Pubsub;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

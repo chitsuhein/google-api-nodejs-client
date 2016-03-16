@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/gamesManagement/v1management.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/gamesManagement/v1management.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Google Play Game Services Management API
+ *
+ * @classdesc The Management API for Google Play Game Services.
+ * @namespace gamesManagement
+ * @version  v1management
+ * @variation v1management
+ * @this Gamesmanagement
+ * @param {object=} options Options for Gamesmanagement
+ */
+function Gamesmanagement(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.achievements = {
+
+    /**
+     * gamesManagement.achievements.reset
+     *
+     * @desc Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.achievements.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.achievementId - The ID of the achievement used by this method.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/achievements/{achievementId}/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['achievementId'],
+        pathParams: ['achievementId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.achievements.resetAll
+     *
+     * @desc Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.achievements.resetAll
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAll: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/achievements/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.achievements.resetAllForAllPlayers
+     *
+     * @desc Resets all draft achievements for all players. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.achievements.resetAllForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAllForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/achievements/resetAllForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.achievements.resetForAllPlayers
+     *
+     * @desc Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft achievements can be reset.
+     *
+     * @alias gamesManagement.achievements.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.achievementId - The ID of the achievement used by this method.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/achievements/{achievementId}/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['achievementId'],
+        pathParams: ['achievementId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.achievements.resetMultipleForAllPlayers
+     *
+     * @desc Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft achievements may be reset.
+     *
+     * @alias gamesManagement.achievements.resetMultipleForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetMultipleForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/achievements/resetMultipleForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.applications = {
+
+    /**
+     * gamesManagement.applications.listHidden
+     *
+     * @desc Get the list of players hidden from the given application. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.applications.listHidden
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.applicationId - The application ID from the Google Play developer console.
+     * @param  {integer=} params.maxResults - The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified maxResults.
+     * @param  {string=} params.pageToken - The token returned by the previous request.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    listHidden: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/applications/{applicationId}/players/hidden',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['applicationId'],
+        pathParams: ['applicationId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.events = {
+
+    /**
+     * gamesManagement.events.reset
+     *
+     * @desc Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. All quests for this player that use the event will also be reset.
+     *
+     * @alias gamesManagement.events.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.eventId - The ID of the event.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/events/{eventId}/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['eventId'],
+        pathParams: ['eventId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.events.resetAll
+     *
+     * @desc Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. All quests for this player will also be reset.
+     *
+     * @alias gamesManagement.events.resetAll
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAll: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/events/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.events.resetAllForAllPlayers
+     *
+     * @desc Resets all draft events for all players. This method is only available to user accounts for your developer console. All quests that use any of these events will also be reset.
+     *
+     * @alias gamesManagement.events.resetAllForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAllForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/events/resetAllForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.events.resetForAllPlayers
+     *
+     * @desc Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset. All quests that use the event will also be reset.
+     *
+     * @alias gamesManagement.events.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.eventId - The ID of the event.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/events/{eventId}/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['eventId'],
+        pathParams: ['eventId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.events.resetMultipleForAllPlayers
+     *
+     * @desc Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be reset. All quests that use any of the events will also be reset.
+     *
+     * @alias gamesManagement.events.resetMultipleForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetMultipleForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/events/resetMultipleForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.players = {
+
+    /**
+     * gamesManagement.players.hide
+     *
+     * @desc Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.players.hide
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.applicationId - The application ID from the Google Play developer console.
+     * @param  {string} params.playerId - A player ID. A value of me may be used in place of the authenticated player's ID.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    hide: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/applications/{applicationId}/players/hidden/{playerId}',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['applicationId', 'playerId'],
+        pathParams: ['applicationId', 'playerId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.players.unhide
+     *
+     * @desc Unhide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.players.unhide
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.applicationId - The application ID from the Google Play developer console.
+     * @param  {string} params.playerId - A player ID. A value of me may be used in place of the authenticated player's ID.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    unhide: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/applications/{applicationId}/players/hidden/{playerId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['applicationId', 'playerId'],
+        pathParams: ['applicationId', 'playerId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.quests = {
+
+    /**
+     * gamesManagement.quests.reset
+     *
+     * @desc Resets all player progress on the quest with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.quests.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.questId - The ID of the quest.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/quests/{questId}/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['questId'],
+        pathParams: ['questId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.quests.resetAll
+     *
+     * @desc Resets all player progress on all quests for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.quests.resetAll
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAll: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/quests/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.quests.resetAllForAllPlayers
+     *
+     * @desc Resets all draft quests for all players. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.quests.resetAllForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAllForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/quests/resetAllForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.quests.resetForAllPlayers
+     *
+     * @desc Resets all player progress on the quest with the given ID for all players. This method is only available to user accounts for your developer console. Only draft quests can be reset.
+     *
+     * @alias gamesManagement.quests.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.questId - The ID of the quest.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/quests/{questId}/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['questId'],
+        pathParams: ['questId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.quests.resetMultipleForAllPlayers
+     *
+     * @desc Resets quests with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft quests may be reset.
+     *
+     * @alias gamesManagement.quests.resetMultipleForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetMultipleForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/quests/resetMultipleForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.rooms = {
+
+    /**
+     * gamesManagement.rooms.reset
+     *
+     * @desc Reset all rooms for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.rooms.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/rooms/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.rooms.resetForAllPlayers
+     *
+     * @desc Deletes rooms where the only room participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.rooms.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/rooms/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.scores = {
+
+    /**
+     * gamesManagement.scores.reset
+     *
+     * @desc Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.scores.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.leaderboardId - The ID of the leaderboard.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/leaderboards/{leaderboardId}/scores/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['leaderboardId'],
+        pathParams: ['leaderboardId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.scores.resetAll
+     *
+     * @desc Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.scores.resetAll
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAll: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/scores/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.scores.resetAllForAllPlayers
+     *
+     * @desc Resets scores for all draft leaderboards for all players. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.scores.resetAllForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetAllForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/scores/resetAllForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.scores.resetForAllPlayers
+     *
+     * @desc Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only draft leaderboards can be reset.
+     *
+     * @alias gamesManagement.scores.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.leaderboardId - The ID of the leaderboard.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/leaderboards/{leaderboardId}/scores/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['leaderboardId'],
+        pathParams: ['leaderboardId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.scores.resetMultipleForAllPlayers
+     *
+     * @desc Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be reset.
+     *
+     * @alias gamesManagement.scores.resetMultipleForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetMultipleForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/scores/resetMultipleForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.turnBasedMatches = {
+
+    /**
+     * gamesManagement.turnBasedMatches.reset
+     *
+     * @desc Reset all turn-based match data for a user. This method is only accessible to whitelisted tester accounts for your application.
+     *
+     * @alias gamesManagement.turnBasedMatches.reset
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    reset: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/turnbasedmatches/reset',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gamesManagement.turnBasedMatches.resetForAllPlayers
+     *
+     * @desc Deletes turn-based matches where the only match participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.
+     *
+     * @alias gamesManagement.turnBasedMatches.resetForAllPlayers
+     * @memberOf! gamesManagement(v1management)
+     *
+     * @param  {object=} params - Parameters for request
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    resetForAllPlayers: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/games/v1management/turnbasedmatches/resetForAllPlayers',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: [],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+}
+
+/**
+ * Exports Gamesmanagement object
+ * @type Gamesmanagement
+ */
+module.exports = Gamesmanagement;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

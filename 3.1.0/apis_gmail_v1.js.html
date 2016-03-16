@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/gmail/v1.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/gmail/v1.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Gmail API
+ *
+ * @classdesc Access Gmail mailboxes including sending user email.
+ * @namespace gmail
+ * @version  v1
+ * @variation v1
+ * @this Gmail
+ * @param {object=} options Options for Gmail
+ */
+function Gmail(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.users = {
+
+    /**
+     * gmail.users.getProfile
+     *
+     * @desc Gets the current user's Gmail profile.
+     *
+     * @alias gmail.users.getProfile
+     * @memberOf! gmail(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    getProfile: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/gmail/v1/users/{userId}/profile',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gmail.users.stop
+     *
+     * @desc Stop receiving push notifications for the given user mailbox.
+     *
+     * @alias gmail.users.stop
+     * @memberOf! gmail(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    stop: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/gmail/v1/users/{userId}/stop',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * gmail.users.watch
+     *
+     * @desc Set up or update a push notification watch on the given user mailbox.
+     *
+     * @alias gmail.users.watch
+     * @memberOf! gmail(v1)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    watch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/gmail/v1/users/{userId}/watch',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    drafts: {
+
+      /**
+       * gmail.users.drafts.create
+       *
+       * @desc Creates a new draft with the DRAFT label.
+       *
+       * @alias gmail.users.drafts.create
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      create: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/drafts',
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.drafts.delete
+       *
+       * @desc Immediately and permanently deletes the specified draft. Does not simply trash it.
+       *
+       * @alias gmail.users.drafts.delete
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the draft to delete.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts/{id}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.drafts.get
+       *
+       * @desc Gets the specified draft.
+       *
+       * @alias gmail.users.drafts.get
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string=} params.format - The format to return the draft in.
+       * @param  {string} params.id - The ID of the draft to retrieve.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts/{id}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.drafts.list
+       *
+       * @desc Lists the drafts in the user's mailbox.
+       *
+       * @alias gmail.users.drafts.list
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {boolean=} params.includeSpamTrash - Include drafts from SPAM and TRASH in the results.
+       * @param  {integer=} params.maxResults - Maximum number of drafts to return.
+       * @param  {string=} params.pageToken - Page token to retrieve a specific page of results in the list.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.drafts.send
+       *
+       * @desc Sends the specified, existing draft to the recipients in the To, Cc, and Bcc headers.
+       *
+       * @alias gmail.users.drafts.send
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      send: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts/send',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/drafts/send',
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.drafts.update
+       *
+       * @desc Replaces a draft's content.
+       *
+       * @alias gmail.users.drafts.update
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the draft to update.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      update: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/drafts/{id}',
+            method: 'PUT'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/drafts/{id}',
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    history: {
+
+      /**
+       * gmail.users.history.list
+       *
+       * @desc Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).
+       *
+       * @alias gmail.users.history.list
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string=} params.labelId - Only return messages with a label matching the ID.
+       * @param  {integer=} params.maxResults - The maximum number of history records to return.
+       * @param  {string=} params.pageToken - Page token to retrieve a specific page of results in the list.
+       * @param  {string=} params.startHistoryId - Required. Returns history records after the specified startHistoryId. The supplied startHistoryId should be obtained from the historyId of a message, thread, or previous list response. History IDs increase chronologically but are not contiguous with random gaps in between valid IDs. Supplying an invalid or out of date startHistoryId typically returns an HTTP 404 error code. A historyId is typically valid for at least a week, but in some rare circumstances may be valid for only a few hours. If you receive an HTTP 404 error response, your application should perform a full sync. If you receive no nextPageToken in the response, there are no updates to retrieve and you can store the returned historyId for a future request.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/history',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    labels: {
+
+      /**
+       * gmail.users.labels.create
+       *
+       * @desc Creates a new label.
+       *
+       * @alias gmail.users.labels.create
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      create: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.labels.delete
+       *
+       * @desc Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to.
+       *
+       * @alias gmail.users.labels.delete
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the label to delete.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels/{id}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.labels.get
+       *
+       * @desc Gets the specified label.
+       *
+       * @alias gmail.users.labels.get
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the label to retrieve.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels/{id}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.labels.list
+       *
+       * @desc Lists all labels in the user's mailbox.
+       *
+       * @alias gmail.users.labels.list
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.labels.patch
+       *
+       * @desc Updates the specified label. This method supports patch semantics.
+       *
+       * @alias gmail.users.labels.patch
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the label to update.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      patch: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels/{id}',
+            method: 'PATCH'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.labels.update
+       *
+       * @desc Updates the specified label.
+       *
+       * @alias gmail.users.labels.update
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the label to update.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      update: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/labels/{id}',
+            method: 'PUT'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    },
+
+    messages: {
+
+      /**
+       * gmail.users.messages.batchDelete
+       *
+       * @desc Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all.
+       *
+       * @alias gmail.users.messages.batchDelete
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      batchDelete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/batchDelete',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.delete
+       *
+       * @desc Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer messages.trash instead.
+       *
+       * @alias gmail.users.messages.delete
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the message to delete.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{id}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.get
+       *
+       * @desc Gets the specified message.
+       *
+       * @alias gmail.users.messages.get
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string=} params.format - The format to return the message in.
+       * @param  {string} params.id - The ID of the message to retrieve.
+       * @param  {string=} params.metadataHeaders - When given and format is METADATA, only include headers specified.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{id}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.import
+       *
+       * @desc Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.
+       *
+       * @alias gmail.users.messages.import
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {boolean=} params.deleted - Mark the email as permanently deleted (not TRASH) and only visible in Google Apps Vault to a Vault administrator. Only used for Google Apps for Work accounts.
+       * @param  {string=} params.internalDateSource - Source for Gmail's internal date of the message.
+       * @param  {boolean=} params.neverMarkSpam - Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox.
+       * @param  {boolean=} params.processForCalendar - Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      import: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/import',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/messages/import',
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.insert
+       *
+       * @desc Directly inserts a message into only this user's mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.
+       *
+       * @alias gmail.users.messages.insert
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {boolean=} params.deleted - Mark the email as permanently deleted (not TRASH) and only visible in Google Apps Vault to a Vault administrator. Only used for Google Apps for Work accounts.
+       * @param  {string=} params.internalDateSource - Source for Gmail's internal date of the message.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      insert: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/messages',
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.list
+       *
+       * @desc Lists the messages in the user's mailbox.
+       *
+       * @alias gmail.users.messages.list
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {boolean=} params.includeSpamTrash - Include messages from SPAM and TRASH in the results.
+       * @param  {string=} params.labelIds - Only return messages with labels that match all of the specified label IDs.
+       * @param  {integer=} params.maxResults - Maximum number of messages to return.
+       * @param  {string=} params.pageToken - Page token to retrieve a specific page of results in the list.
+       * @param  {string=} params.q - Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread".
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.modify
+       *
+       * @desc Modifies the labels on the specified message.
+       *
+       * @alias gmail.users.messages.modify
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the message to modify.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      modify: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{id}/modify',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.send
+       *
+       * @desc Sends the specified message to the recipients in the To, Cc, and Bcc headers.
+       *
+       * @alias gmail.users.messages.send
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Media resource metadata
+       * @param  {object} params.media - Media object
+       * @param  {string} params.media.mimeType - Media mime-type
+       * @param  {string|object} params.media.body - Media body contents
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      send: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/send',
+            method: 'POST'
+          },
+          params: params,
+          mediaUrl: 'https://www.googleapis.com/upload/gmail/v1/users/{userId}/messages/send',
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.trash
+       *
+       * @desc Moves the specified message to the trash.
+       *
+       * @alias gmail.users.messages.trash
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the message to Trash.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      trash: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{id}/trash',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.messages.untrash
+       *
+       * @desc Removes the specified message from the trash.
+       *
+       * @alias gmail.users.messages.untrash
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the message to remove from Trash.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      untrash: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{id}/untrash',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      attachments: {
+
+        /**
+         * gmail.users.messages.attachments.get
+         *
+         * @desc Gets the specified message attachment.
+         *
+         * @alias gmail.users.messages.attachments.get
+         * @memberOf! gmail(v1)
+         *
+         * @param  {object} params - Parameters for request
+         * @param  {string} params.id - The ID of the attachment.
+         * @param  {string} params.messageId - The ID of the message containing the attachment.
+         * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+         * @param  {callback} callback - The callback that handles the response.
+         * @return {object} Request object
+         */
+        get: function(params, callback) {
+          var parameters = {
+            options: {
+              url: 'https://www.googleapis.com/gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}',
+              method: 'GET'
+            },
+            params: params,
+            requiredParams: ['userId', 'messageId', 'id'],
+            pathParams: ['id', 'messageId', 'userId'],
+            context: self
+          };
+
+          return createAPIRequest(parameters, callback);
+        }
+      }
+    },
+
+    threads: {
+
+      /**
+       * gmail.users.threads.delete
+       *
+       * @desc Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer threads.trash instead.
+       *
+       * @alias gmail.users.threads.delete
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - ID of the Thread to delete.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      delete: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads/{id}',
+            method: 'DELETE'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.threads.get
+       *
+       * @desc Gets the specified thread.
+       *
+       * @alias gmail.users.threads.get
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string=} params.format - The format to return the messages in.
+       * @param  {string} params.id - The ID of the thread to retrieve.
+       * @param  {string=} params.metadataHeaders - When given and format is METADATA, only include headers specified.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      get: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads/{id}',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.threads.list
+       *
+       * @desc Lists the threads in the user's mailbox.
+       *
+       * @alias gmail.users.threads.list
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {boolean=} params.includeSpamTrash - Include threads from SPAM and TRASH in the results.
+       * @param  {string=} params.labelIds - Only return threads with labels that match all of the specified label IDs.
+       * @param  {integer=} params.maxResults - Maximum number of threads to return.
+       * @param  {string=} params.pageToken - Page token to retrieve a specific page of results in the list.
+       * @param  {string=} params.q - Only return threads matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread".
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      list: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads',
+            method: 'GET'
+          },
+          params: params,
+          requiredParams: ['userId'],
+          pathParams: ['userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.threads.modify
+       *
+       * @desc Modifies the labels applied to the thread. This applies to all messages in the thread.
+       *
+       * @alias gmail.users.threads.modify
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the thread to modify.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {object} params.resource - Request body data
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      modify: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads/{id}/modify',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.threads.trash
+       *
+       * @desc Moves the specified thread to the trash.
+       *
+       * @alias gmail.users.threads.trash
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the thread to Trash.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      trash: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads/{id}/trash',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      },
+
+      /**
+       * gmail.users.threads.untrash
+       *
+       * @desc Removes the specified thread from the trash.
+       *
+       * @alias gmail.users.threads.untrash
+       * @memberOf! gmail(v1)
+       *
+       * @param  {object} params - Parameters for request
+       * @param  {string} params.id - The ID of the thread to remove from Trash.
+       * @param  {string} params.userId - The user's email address. The special value me can be used to indicate the authenticated user.
+       * @param  {callback} callback - The callback that handles the response.
+       * @return {object} Request object
+       */
+      untrash: function(params, callback) {
+        var parameters = {
+          options: {
+            url: 'https://www.googleapis.com/gmail/v1/users/{userId}/threads/{id}/untrash',
+            method: 'POST'
+          },
+          params: params,
+          requiredParams: ['userId', 'id'],
+          pathParams: ['id', 'userId'],
+          context: self
+        };
+
+        return createAPIRequest(parameters, callback);
+      }
+    }
+  };
+}
+
+/**
+ * Exports Gmail object
+ * @type Gmail
+ */
+module.exports = Gmail;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

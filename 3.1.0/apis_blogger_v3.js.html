@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: apis/blogger/v3.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: apis/blogger/v3.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* jshint maxlen: false */
+
+'use strict';
+
+var createAPIRequest = require('../../lib/apirequest');
+
+/**
+ * Blogger API
+ *
+ * @classdesc API for access to the data within Blogger.
+ * @namespace blogger
+ * @version  v3
+ * @variation v3
+ * @this Blogger
+ * @param {object=} options Options for Blogger
+ */
+function Blogger(options) {
+
+  var self = this;
+  this._options = options || {};
+
+  this.blogUserInfos = {
+
+    /**
+     * blogger.blogUserInfos.get
+     *
+     * @desc Gets one blog and user info pair by blogId and userId.
+     *
+     * @alias blogger.blogUserInfos.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog to get.
+     * @param  {integer=} params.maxPosts - Maximum number of posts to pull back with the blog.
+     * @param  {string} params.userId - ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/users/{userId}/blogs/{blogId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId', 'blogId'],
+        pathParams: ['blogId', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.blogs = {
+
+    /**
+     * blogger.blogs.get
+     *
+     * @desc Gets one blog by ID.
+     *
+     * @alias blogger.blogs.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog to get.
+     * @param  {integer=} params.maxPosts - Maximum number of posts to pull back with the blog.
+     * @param  {string=} params.view - Access level with which to view the blog. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.blogs.getByUrl
+     *
+     * @desc Retrieve a Blog by URL.
+     *
+     * @alias blogger.blogs.getByUrl
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.url - The URL of the blog to retrieve.
+     * @param  {string=} params.view - Access level with which to view the blog. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    getByUrl: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/byurl',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['url'],
+        pathParams: [],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.blogs.listByUser
+     *
+     * @desc Retrieves a list of blogs, possibly filtered.
+     *
+     * @alias blogger.blogs.listByUser
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {boolean=} params.fetchUserInfo - Whether the response is a list of blogs with per-user information instead of just blogs.
+     * @param  {string=} params.role - User access types for blogs to include in the results, e.g. AUTHOR will return blogs where the user has author level access. If no roles are specified, defaults to ADMIN and AUTHOR roles.
+     * @param  {string=} params.status - Blog statuses to include in the result (default: Live blogs only). Note that ADMIN access is required to view deleted blogs.
+     * @param  {string} params.userId - ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
+     * @param  {string=} params.view - Access level with which to view the blogs. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    listByUser: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/users/{userId}/blogs',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.comments = {
+
+    /**
+     * blogger.comments.approve
+     *
+     * @desc Marks a comment as not spam.
+     *
+     * @alias blogger.comments.approve
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.commentId - The ID of the comment to mark as not spam.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    approve: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/approve',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId', 'commentId'],
+        pathParams: ['blogId', 'commentId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.delete
+     *
+     * @desc Delete a comment by ID.
+     *
+     * @alias blogger.comments.delete
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.commentId - The ID of the comment to delete.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId', 'commentId'],
+        pathParams: ['blogId', 'commentId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.get
+     *
+     * @desc Gets one comment by ID.
+     *
+     * @alias blogger.comments.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to containing the comment.
+     * @param  {string} params.commentId - The ID of the comment to get.
+     * @param  {string} params.postId - ID of the post to fetch posts from.
+     * @param  {string=} params.view - Access level for the requested comment (default: READER). Note that some comments will require elevated permissions, for example comments where the parent posts which is in a draft state, or comments that are pending moderation.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId', 'commentId'],
+        pathParams: ['blogId', 'commentId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.list
+     *
+     * @desc Retrieves the comments for a post, possibly filtered.
+     *
+     * @alias blogger.comments.list
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch comments from.
+     * @param  {string=} params.endDate - Latest date of comment to fetch, a date-time with RFC 3339 formatting.
+     * @param  {boolean=} params.fetchBodies - Whether the body content of the comments is included.
+     * @param  {integer=} params.maxResults - Maximum number of comments to include in the result.
+     * @param  {string=} params.pageToken - Continuation token if request is paged.
+     * @param  {string} params.postId - ID of the post to fetch posts from.
+     * @param  {string=} params.startDate - Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
+     * @param  {string=} params.status - 
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.listByBlog
+     *
+     * @desc Retrieves the comments for a blog, across all posts, possibly filtered.
+     *
+     * @alias blogger.comments.listByBlog
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch comments from.
+     * @param  {string=} params.endDate - Latest date of comment to fetch, a date-time with RFC 3339 formatting.
+     * @param  {boolean=} params.fetchBodies - Whether the body content of the comments is included.
+     * @param  {integer=} params.maxResults - Maximum number of comments to include in the result.
+     * @param  {string=} params.pageToken - Continuation token if request is paged.
+     * @param  {string=} params.startDate - Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
+     * @param  {string=} params.status - 
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    listByBlog: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/comments',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.markAsSpam
+     *
+     * @desc Marks a comment as spam.
+     *
+     * @alias blogger.comments.markAsSpam
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.commentId - The ID of the comment to mark as spam.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    markAsSpam: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/spam',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId', 'commentId'],
+        pathParams: ['blogId', 'commentId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.comments.removeContent
+     *
+     * @desc Removes the content of a comment.
+     *
+     * @alias blogger.comments.removeContent
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.commentId - The ID of the comment to delete content from.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    removeContent: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/removecontent',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId', 'commentId'],
+        pathParams: ['blogId', 'commentId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.pageViews = {
+
+    /**
+     * blogger.pageViews.get
+     *
+     * @desc Retrieve pageview stats for a Blog.
+     *
+     * @alias blogger.pageViews.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog to get.
+     * @param  {string=} params.range - 
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pageviews',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.pages = {
+
+    /**
+     * blogger.pages.delete
+     *
+     * @desc Delete a page by ID.
+     *
+     * @alias blogger.pages.delete
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.pageId - The ID of the Page.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.get
+     *
+     * @desc Gets one blog page by ID.
+     *
+     * @alias blogger.pages.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog containing the page.
+     * @param  {string} params.pageId - The ID of the page to get.
+     * @param  {string=} params.view - 
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.insert
+     *
+     * @desc Add a page.
+     *
+     * @alias blogger.pages.insert
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to add the page to.
+     * @param  {boolean=} params.isDraft - Whether to create the page as a draft (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.list
+     *
+     * @desc Retrieves the pages for a blog, optionally including non-LIVE statuses.
+     *
+     * @alias blogger.pages.list
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch Pages from.
+     * @param  {boolean=} params.fetchBodies - Whether to retrieve the Page bodies.
+     * @param  {integer=} params.maxResults - Maximum number of Pages to fetch.
+     * @param  {string=} params.pageToken - Continuation token if the request is paged.
+     * @param  {string=} params.status - 
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.patch
+     *
+     * @desc Update a page. This method supports patch semantics.
+     *
+     * @alias blogger.pages.patch
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.pageId - The ID of the Page.
+     * @param  {boolean=} params.publish - Whether a publish action should be performed when the page is updated (default: false).
+     * @param  {boolean=} params.revert - Whether a revert action should be performed when the page is updated (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.publish
+     *
+     * @desc Publishes a draft page.
+     *
+     * @alias blogger.pages.publish
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog.
+     * @param  {string} params.pageId - The ID of the page.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    publish: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}/publish',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.revert
+     *
+     * @desc Revert a published or scheduled page to draft state.
+     *
+     * @alias blogger.pages.revert
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog.
+     * @param  {string} params.pageId - The ID of the page.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    revert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}/revert',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.pages.update
+     *
+     * @desc Update a page.
+     *
+     * @alias blogger.pages.update
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.pageId - The ID of the Page.
+     * @param  {boolean=} params.publish - Whether a publish action should be performed when the page is updated (default: false).
+     * @param  {boolean=} params.revert - Whether a revert action should be performed when the page is updated (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/pages/{pageId}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['blogId', 'pageId'],
+        pathParams: ['blogId', 'pageId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.postUserInfos = {
+
+    /**
+     * blogger.postUserInfos.get
+     *
+     * @desc Gets one post and user info pair, by post ID and user ID. The post user info contains per-user information about the post, such as access rights, specific to the user.
+     *
+     * @alias blogger.postUserInfos.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the blog.
+     * @param  {integer=} params.maxComments - Maximum number of comments to pull back on a post.
+     * @param  {string} params.postId - The ID of the post to get.
+     * @param  {string} params.userId - ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/users/{userId}/blogs/{blogId}/posts/{postId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId', 'blogId', 'postId'],
+        pathParams: ['blogId', 'postId', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.postUserInfos.list
+     *
+     * @desc Retrieves a list of post and post user info pairs, possibly filtered. The post user info contains per-user information about the post, such as access rights, specific to the user.
+     *
+     * @alias blogger.postUserInfos.list
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch posts from.
+     * @param  {string=} params.endDate - Latest post date to fetch, a date-time with RFC 3339 formatting.
+     * @param  {boolean=} params.fetchBodies - Whether the body content of posts is included. Default is false.
+     * @param  {string=} params.labels - Comma-separated list of labels to search for.
+     * @param  {integer=} params.maxResults - Maximum number of posts to fetch.
+     * @param  {string=} params.orderBy - Sort order applied to search results. Default is published.
+     * @param  {string=} params.pageToken - Continuation token if the request is paged.
+     * @param  {string=} params.startDate - Earliest post date to fetch, a date-time with RFC 3339 formatting.
+     * @param  {string=} params.status - 
+     * @param  {string} params.userId - ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/users/{userId}/blogs/{blogId}/posts',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId', 'blogId'],
+        pathParams: ['blogId', 'userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.posts = {
+
+    /**
+     * blogger.posts.delete
+     *
+     * @desc Delete a post by ID.
+     *
+     * @alias blogger.posts.delete
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    delete: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}',
+          method: 'DELETE'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.get
+     *
+     * @desc Get a post by ID.
+     *
+     * @alias blogger.posts.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch the post from.
+     * @param  {boolean=} params.fetchBody - Whether the body content of the post is included (default: true). This should be set to false when the post bodies are not required, to help minimize traffic.
+     * @param  {boolean=} params.fetchImages - Whether image URL metadata for each post is included (default: false).
+     * @param  {integer=} params.maxComments - Maximum number of comments to pull back on a post.
+     * @param  {string} params.postId - The ID of the post
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.getByPath
+     *
+     * @desc Retrieve a Post by Path.
+     *
+     * @alias blogger.posts.getByPath
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch the post from.
+     * @param  {integer=} params.maxComments - Maximum number of comments to pull back on a post.
+     * @param  {string} params.path - Path of the Post to retrieve.
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require elevated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    getByPath: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/bypath',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'path'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.insert
+     *
+     * @desc Add a post.
+     *
+     * @alias blogger.posts.insert
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to add the post to.
+     * @param  {boolean=} params.fetchBody - Whether the body content of the post is included with the result (default: true).
+     * @param  {boolean=} params.fetchImages - Whether image URL metadata for each post is included in the returned result (default: false).
+     * @param  {boolean=} params.isDraft - Whether to create the post as a draft (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    insert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.list
+     *
+     * @desc Retrieves a list of posts, possibly filtered.
+     *
+     * @alias blogger.posts.list
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch posts from.
+     * @param  {string=} params.endDate - Latest post date to fetch, a date-time with RFC 3339 formatting.
+     * @param  {boolean=} params.fetchBodies - Whether the body content of posts is included (default: true). This should be set to false when the post bodies are not required, to help minimize traffic.
+     * @param  {boolean=} params.fetchImages - Whether image URL metadata for each post is included.
+     * @param  {string=} params.labels - Comma-separated list of labels to search for.
+     * @param  {integer=} params.maxResults - Maximum number of posts to fetch.
+     * @param  {string=} params.orderBy - Sort search results
+     * @param  {string=} params.pageToken - Continuation token if the request is paged.
+     * @param  {string=} params.startDate - Earliest post date to fetch, a date-time with RFC 3339 formatting.
+     * @param  {string=} params.status - Statuses to include in the results.
+     * @param  {string=} params.view - Access level with which to view the returned result. Note that some fields require escalated access.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    list: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.patch
+     *
+     * @desc Update a post. This method supports patch semantics.
+     *
+     * @alias blogger.posts.patch
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {boolean=} params.fetchBody - Whether the body content of the post is included with the result (default: true).
+     * @param  {boolean=} params.fetchImages - Whether image URL metadata for each post is included in the returned result (default: false).
+     * @param  {integer=} params.maxComments - Maximum number of comments to retrieve with the returned post.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {boolean=} params.publish - Whether a publish action should be performed when the post is updated (default: false).
+     * @param  {boolean=} params.revert - Whether a revert action should be performed when the post is updated (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    patch: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}',
+          method: 'PATCH'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.publish
+     *
+     * @desc Publishes a draft post, optionally at the specific time of the given publishDate parameter.
+     *
+     * @alias blogger.posts.publish
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {string=} params.publishDate - Optional date and time to schedule the publishing of the Blog. If no publishDate parameter is given, the post is either published at the a previously saved schedule date (if present), or the current time. If a future date is given, the post will be scheduled to be published.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    publish: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/publish',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.revert
+     *
+     * @desc Revert a published or scheduled post to draft state.
+     *
+     * @alias blogger.posts.revert
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    revert: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}/revert',
+          method: 'POST'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.search
+     *
+     * @desc Search for a post.
+     *
+     * @alias blogger.posts.search
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - ID of the blog to fetch the post from.
+     * @param  {boolean=} params.fetchBodies - Whether the body content of posts is included (default: true). This should be set to false when the post bodies are not required, to help minimize traffic.
+     * @param  {string=} params.orderBy - Sort search results
+     * @param  {string} params.q - Query terms to search this blog for matching posts.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    search: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/search',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['blogId', 'q'],
+        pathParams: ['blogId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    },
+
+    /**
+     * blogger.posts.update
+     *
+     * @desc Update a post.
+     *
+     * @alias blogger.posts.update
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.blogId - The ID of the Blog.
+     * @param  {boolean=} params.fetchBody - Whether the body content of the post is included with the result (default: true).
+     * @param  {boolean=} params.fetchImages - Whether image URL metadata for each post is included in the returned result (default: false).
+     * @param  {integer=} params.maxComments - Maximum number of comments to retrieve with the returned post.
+     * @param  {string} params.postId - The ID of the Post.
+     * @param  {boolean=} params.publish - Whether a publish action should be performed when the post is updated (default: false).
+     * @param  {boolean=} params.revert - Whether a revert action should be performed when the post is updated (default: false).
+     * @param  {object} params.resource - Request body data
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    update: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/blogs/{blogId}/posts/{postId}',
+          method: 'PUT'
+        },
+        params: params,
+        requiredParams: ['blogId', 'postId'],
+        pathParams: ['blogId', 'postId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+
+  this.users = {
+
+    /**
+     * blogger.users.get
+     *
+     * @desc Gets one user by ID.
+     *
+     * @alias blogger.users.get
+     * @memberOf! blogger(v3)
+     *
+     * @param  {object} params - Parameters for request
+     * @param  {string} params.userId - The ID of the user to get.
+     * @param  {callback} callback - The callback that handles the response.
+     * @return {object} Request object
+     */
+    get: function(params, callback) {
+      var parameters = {
+        options: {
+          url: 'https://www.googleapis.com/blogger/v3/users/{userId}',
+          method: 'GET'
+        },
+        params: params,
+        requiredParams: ['userId'],
+        pathParams: ['userId'],
+        context: self
+      };
+
+      return createAPIRequest(parameters, callback);
+    }
+
+  };
+}
+
+/**
+ * Exports Blogger object
+ * @type Blogger
+ */
+module.exports = Blogger;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-google.html">google</a></li></ul><h3>Classes</h3><ul><li><a href="module-google-GoogleApis.html">GoogleApis</a></li></ul><h3>Namespaces</h3><ul><li><a href="adexchangebuyer2.html">adexchangebuyer2</a></li><li><a href="adexchangebuyer.html">adexchangebuyer</a></li><li><a href="adexchangebuyer_.html">adexchangebuyer</a></li><li><a href="adexchangebuyer__.html">adexchangebuyer</a></li><li><a href="adexchangeseller.html">adexchangeseller</a></li><li><a href="adexchangeseller_.html">adexchangeseller</a></li><li><a href="adexchangeseller__.html">adexchangeseller</a></li><li><a href="admin.html">admin</a></li><li><a href="admin_.html">admin</a></li><li><a href="admin__.html">admin</a></li><li><a href="adsense.html">adsense</a></li><li><a href="adsense_.html">adsense</a></li><li><a href="adsense__.html">adsense</a></li><li><a href="adsensehost.html">adsensehost</a></li><li><a href="analytics.html">analytics</a></li><li><a href="analytics_.html">analytics</a></li><li><a href="androidenterprise.html">androidenterprise</a></li><li><a href="androidpublisher.html">androidpublisher</a></li><li><a href="androidpublisher_.html">androidpublisher</a></li><li><a href="androidpublisher__.html">androidpublisher</a></li><li><a href="appengine.html">appengine</a></li><li><a href="appengine_.html">appengine</a></li><li><a href="appsactivity.html">appsactivity</a></li><li><a href="appstate.html">appstate</a></li><li><a href="autoscaler.html">autoscaler</a></li><li><a href="bigquery.html">bigquery</a></li><li><a href="blogger.html">blogger</a></li><li><a href="blogger_.html">blogger</a></li><li><a href="books.html">books</a></li><li><a href="calendar.html">calendar</a></li><li><a href="civicinfo.html">civicinfo</a></li><li><a href="classroom.html">classroom</a></li><li><a href="cloudbilling.html">cloudbilling</a></li><li><a href="cloudbuild.html">cloudbuild</a></li><li><a href="clouddebugger.html">clouddebugger</a></li><li><a href="cloudlatencytest.html">cloudlatencytest</a></li><li><a href="cloudmonitoring.html">cloudmonitoring</a></li><li><a href="cloudresourcemanager.html">cloudresourcemanager</a></li><li><a href="cloudresourcemanager_.html">cloudresourcemanager</a></li><li><a href="cloudtrace.html">cloudtrace</a></li><li><a href="clouduseraccounts.html">clouduseraccounts</a></li><li><a href="clouduseraccounts_.html">clouduseraccounts</a></li><li><a href="clouduseraccounts__.html">clouduseraccounts</a></li><li><a href="clouduseraccounts___.html">clouduseraccounts</a></li><li><a href="compute.html">compute</a></li><li><a href="compute_.html">compute</a></li><li><a href="container.html">container</a></li><li><a href="content.html">content</a></li><li><a href="content_.html">content</a></li><li><a href="coordinate.html">coordinate</a></li><li><a href="customsearch.html">customsearch</a></li><li><a href="dataflow.html">dataflow</a></li><li><a href="dataproc.html">dataproc</a></li><li><a href="dataproc_.html">dataproc</a></li><li><a href="dataproc__.html">dataproc</a></li><li><a href="datastore.html">datastore</a></li><li><a href="datastore_.html">datastore</a></li><li><a href="deploymentmanager.html">deploymentmanager</a></li><li><a href="deploymentmanager_.html">deploymentmanager</a></li><li><a href="deploymentmanager__.html">deploymentmanager</a></li><li><a href="dfareporting.html">dfareporting</a></li><li><a href="dfareporting_.html">dfareporting</a></li><li><a href="dfareporting__.html">dfareporting</a></li><li><a href="dfareporting___.html">dfareporting</a></li><li><a href="dfareporting____.html">dfareporting</a></li><li><a href="dfareporting_____.html">dfareporting</a></li><li><a href="dfareporting______.html">dfareporting</a></li><li><a href="dfareporting_______.html">dfareporting</a></li><li><a href="dfareporting________.html">dfareporting</a></li><li><a href="discovery.html">discovery</a></li><li><a href="dns.html">dns</a></li><li><a href="doubleclickbidmanager.html">doubleclickbidmanager</a></li><li><a href="doubleclicksearch.html">doubleclicksearch</a></li><li><a href="drive.html">drive</a></li><li><a href="drive_.html">drive</a></li><li><a href="drive__.html">drive</a></li><li><a href="fitness.html">fitness</a></li><li><a href="freebase.html">freebase</a></li><li><a href="fusiontables.html">fusiontables</a></li><li><a href="fusiontables_.html">fusiontables</a></li><li><a href="games.html">games</a></li><li><a href="gamesConfiguration.html">gamesConfiguration</a></li><li><a href="gamesManagement.html">gamesManagement</a></li><li><a href="gan.html">gan</a></li><li><a href="genomics.html">genomics</a></li><li><a href="genomics_.html">genomics</a></li><li><a href="genomics__.html">genomics</a></li><li><a href="gmail.html">gmail</a></li><li><a href="groupsmigration.html">groupsmigration</a></li><li><a href="groupssettings.html">groupssettings</a></li><li><a href="iam.html">iam</a></li><li><a href="identitytoolkit.html">identitytoolkit</a></li><li><a href="kgsearch.html">kgsearch</a></li><li><a href="licensing.html">licensing</a></li><li><a href="logging.html">logging</a></li><li><a href="manager.html">manager</a></li><li><a href="mirror.html">mirror</a></li><li><a href="monitoring.html">monitoring</a></li><li><a href="oauth2.html">oauth2</a></li><li><a href="oauth2_.html">oauth2</a></li><li><a href="pagespeedonline.html">pagespeedonline</a></li><li><a href="pagespeedonline_.html">pagespeedonline</a></li><li><a href="partners.html">partners</a></li><li><a href="people.html">people</a></li><li><a href="playmoviespartner.html">playmoviespartner</a></li><li><a href="plus.html">plus</a></li><li><a href="plusDomains.html">plusDomains</a></li><li><a href="prediction.html">prediction</a></li><li><a href="prediction_.html">prediction</a></li><li><a href="prediction__.html">prediction</a></li><li><a href="prediction___.html">prediction</a></li><li><a href="prediction____.html">prediction</a></li><li><a href="proximitybeacon.html">proximitybeacon</a></li><li><a href="pubsub.html">pubsub</a></li><li><a href="pubsub_.html">pubsub</a></li><li><a href="pubsub__.html">pubsub</a></li><li><a href="qpxExpress.html">qpxExpress</a></li><li><a href="replicapool.html">replicapool</a></li><li><a href="replicapool_.html">replicapool</a></li><li><a href="replicapoolupdater.html">replicapoolupdater</a></li><li><a href="reseller.html">reseller</a></li><li><a href="reseller_.html">reseller</a></li><li><a href="resourceviews.html">resourceviews</a></li><li><a href="resourceviews_.html">resourceviews</a></li><li><a href="script.html">script</a></li><li><a href="serviceregistry.html">serviceregistry</a></li><li><a href="siteVerification.html">siteVerification</a></li><li><a href="spectrum.html">spectrum</a></li><li><a href="sqladmin.html">sqladmin</a></li><li><a href="sqladmin_.html">sqladmin</a></li><li><a href="storage.html">storage</a></li><li><a href="storage_.html">storage</a></li><li><a href="storage__.html">storage</a></li><li><a href="storagetransfer.html">storagetransfer</a></li><li><a href="tagmanager.html">tagmanager</a></li><li><a href="taskqueue.html">taskqueue</a></li><li><a href="taskqueue_.html">taskqueue</a></li><li><a href="tasks.html">tasks</a></li><li><a href="toolresults.html">toolresults</a></li><li><a href="translate.html">translate</a></li><li><a href="urlshortener.html">urlshortener</a></li><li><a href="vision.html">vision</a></li><li><a href="webfonts.html">webfonts</a></li><li><a href="webmasters.html">webmasters</a></li><li><a href="youtube.html">youtube</a></li><li><a href="youtubeAnalytics.html">youtubeAnalytics</a></li><li><a href="youtubeAnalytics_.html">youtubeAnalytics</a></li><li><a href="youtubereporting.html">youtubereporting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#buildurl">buildurl</a></li><li><a href="global.html#cleanComments">cleanComments</a></li><li><a href="global.html#createAPIRequest">createAPIRequest</a></li><li><a href="global.html#Generator">Generator</a></li><li><a href="global.html#getAPIs">getAPIs</a></li><li><a href="global.html#handleError">handleError</a></li><li><a href="global.html#oneLine">oneLine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 09:20:25 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
