@@ -1,66 +1,640 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>google-api-nodejs-client by google</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>google-api-nodejs-client by chitsuhein</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
+      <div class="inner">
         <h1>google-api-nodejs-client</h1>
-        <p>Google&#39;s officially supported Node.js client library for using Google APIs. Support for authorization and authentication with OAuth 2.0, API Keys and JWT (Service Tokens) is included.</p>
+        <h2>Google&#39;s officially supported Node.js client library for using Google APIs. Support for authorization and authentication with OAuth 2.0, API Keys and JWT (Service Tokens) is included.</h2>
+        <a href="https://github.com/chitsuhein/google-api-nodejs-client" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-        <p class="view"><a href="https://github.com/google/google-api-nodejs-client">View the Project on GitHub <small>google/google-api-nodejs-client</small></a></p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&amp;s=96" alt="Google Inc. logo" title="Google" align="right" height="96" width="96"></p>
 
+<h1>
+<a id="google-apis-nodejs-client" class="anchor" href="#google-apis-nodejs-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Google APIs Node.js Client</h1>
 
-        <ul>
-          <li><a href="https://github.com/google/google-api-nodejs-client/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/google/google-api-nodejs-client/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/google/google-api-nodejs-client">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&amp;s=96" alt="Google Inc. logo" title="Google" align="right" height="96" width="96"></p>
+<p><a href="https://www.npmjs.org/package/googleapis"><img src="https://img.shields.io/npm/v/googleapis.svg" alt="npm version"></a>
+<a href="https://travis-ci.org/google/google-api-nodejs-client"><img src="https://api.travis-ci.org/google/google-api-nodejs-client.svg" alt="Build Status"></a>
+<a href="https://codecov.io/github/google/google-api-nodejs-client?branch=master"><img src="https://codecov.io/github/google/google-api-nodejs-client/coverage.svg?branch=master" alt="Code Coverage"></a>
+<a href="https://nodei.co/npm/googleapis/"><img src="https://img.shields.io/npm/dm/googleapis.svg" alt="Downloads"></a></p>
 
-<h3>
-<a id="google-api-nodejs-client-api-reference-docs" class="anchor" href="#google-api-nodejs-client-api-reference-docs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>google-api-nodejs-client API Reference Docs</h3>
+<p>Google's officially supported <a href="http://nodejs.org/">Node.js</a> client library for using Google
+APIs. Support for authorization and authentication with OAuth 2.0, API Keys and
+JWT (Service Tokens) is included.</p>
+
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
 
 <ul>
-<li><a href="http://google.github.io/google-api-nodejs-client/14.0.0/index.html">v14.0.0 (latest)</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/13.0.0/index.html">v13.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/12.4.0/index.html">v12.4.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/12.3.0/index.html">v12.3.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/12.2.0/index.html">v12.2.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/12.0.0/index.html">v12.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/10.0.0/index.html">v10.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/9.0.0/index.html">v9.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/8.2.0/index.html">v8.2.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/8.0.0/index.html">v8.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/7.0.0/index.html">v7.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/6.0.0/index.html">v6.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/5.2.0/index.html">v5.2.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/5.1.0/index.html">v5.1.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/5.0.0/index.html">v5.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/4.0.0/index.html">v4.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/3.1.0/index.html">v3.1.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/3.0.0/index.html">v3.0.0</a></li>
-<li><a href="http://google.github.io/google-api-nodejs-client/2.1.7/index.html">v2.1.7</a></li>
+<li><a href="#alpha">Alpha</a></li>
+<li><a href="#migrating-to-version-2x-of-this-library">Migrating to version <code>2.x</code> of this library</a></li>
+<li><a href="#supported-apis">Supported APIs</a></li>
+<li><a href="#questionsproblems">Questions/problems?</a></li>
+<li><a href="#working-with-google-cloud-platform-apis">Working with Google Cloud Platform APIs?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li>
+<a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#create-a-service-client">Create a service client</a></li>
+<li>
+<a href="#authorizing-and-authenticating">Authorizing and authenticating</a>
+
+<ul>
+<li>
+<a href="#oauth2-client">OAuth2 client</a>
+
+<ul>
+<li><a href="#generating-an-authentication-url">Generating an authentication URL</a></li>
+<li><a href="#retrieve-authorization-code">Retrieve authorization code</a></li>
+<li><a href="#retrieve-access-token">Retrieve access token</a></li>
+<li><a href="#setting-global-or-service-level-auth">Setting global or service-level auth</a></li>
+<li><a href="#making-authenticated-requests">Making authenticated requests</a></li>
+<li><a href="#manually-refreshing-access-token">Manually refreshing access token</a></li>
 </ul>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/google">google</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+</li>
+<li><a href="#using-api-keys">Using API keys</a></li>
+<li><a href="#using-jwt-service-tokens">Using JWT (Service Tokens)</a></li>
+<li><a href="#choosing-the-correct-credential-type-automatically">Choosing the correct credential type automatically</a></li>
+</ul>
+</li>
+<li><a href="#specifying-request-body">Specifying request body</a></li>
+<li>
+<a href="#media-uploads">Media uploads</a>
+
+<ul>
+<li><a href="#example-upload-a-plain-text-file-to-google-drive">Example: Upload a plain text file to Google Drive</a></li>
+<li><a href="#example-upload-an-image-to-google-drive-from-a-readable-stream">Example: Upload an image to Google Drive from a readable stream</a></li>
+</ul>
+</li>
+<li><a href="#exposing-request-object">Exposing request object</a></li>
+<li>
+<a href="#options">Options</a>
+
+<ul>
+<li><a href="#available-options">Available options</a></li>
+<li>
+<a href="#global-options">Global options</a>
+
+<ul>
+<li><a href="#example-specifying-a-default-proxy-and-auth-to-be-used-for-each-request">Example: Specifying a default proxy and <code>auth</code> to be used for each request</a></li>
+<li><a href="#example-specifying-global-request-parameters">Example: Specifying global request parameters</a></li>
+</ul>
+</li>
+<li>
+<a href="#service-client-options">Service-client options</a>
+
+<ul>
+<li><a href="#example-specifying-a-default-auth-option-api-key-or-oauth2-client">Example: Specifying a default <code>auth</code> option (API key or OAuth2 client)</a></li>
+<li><a href="#example-specifying-default-service-client-query-parameters">Example: Specifying default service client query parameters</a></li>
+</ul>
+</li>
+<li><a href="#request-level-options">Request-level options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+
+<h3>
+<a id="alpha" class="anchor" href="#alpha" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Alpha</h3>
+
+<p>This library is in Alpha. We will make an effort to support the library, but we reserve the right to make incompatible changes when necessary.</p>
+
+<h3>
+<a id="migrating-to-version-2x-of-this-library" class="anchor" href="#migrating-to-version-2x-of-this-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Migrating to version <code>2.x</code> of this library</h3>
+
+<p>If you've used this library before <code>1.x</code>, see our <a href="https://github.com/google/google-api-nodejs-client/tree/master/MIGRATING.md">Migration Guide</a>
+to learn about migrating your code from <code>0.x.x</code> to <code>1.x</code>. It's pretty easy :)</p>
+
+<p>If your code already works with a <code>1.x</code> version of this library, no work is required
+to move to <code>2.x</code>. However, note that return data of getToken has become an array. Furthermore, it is recommended that you update any direct links in your code,
+as explained in the <a href="https://github.com/google/google-api-nodejs-client/tree/master/MIGRATING.md">Migration Guide</a>.</p>
+
+<h3>
+<a id="supported-apis" class="anchor" href="#supported-apis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported APIs</h3>
+
+<p>The full list of supported APIs can be found <a href="https://developers.google.com/apis-explorer/">here</a>. The API endpoints are automatically generated, so if the API is not in the list, it is currently not supported by this API client library.</p>
+
+<h3>
+<a id="questionsproblems" class="anchor" href="#questionsproblems" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Questions/problems?</h3>
+
+<ul>
+<li>Ask your development related questions on <a href="http://stackoverflow.com/questions/tagged/google-api-nodejs-client"><img src="https://googledrive.com/host/0ByfSjdPVs9MZbkhjeUhMYzRTeEE/stackoveflow-tag.png" alt="Ask a question on Stackoverflow"></a>
+</li>
+<li>If you've found an bug/issue, please <a href="https://github.com/google/google-api-nodejs-client/issues">file it on GitHub</a>.</li>
+</ul>
+
+<h3>
+<a id="working-with-google-cloud-platform-apis" class="anchor" href="#working-with-google-cloud-platform-apis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Working with Google Cloud Platform APIs?</h3>
+
+<p>If you're working with <a href="https://cloud.google.com/docs/">Google Cloud Platform</a> APIs such as
+Datastore, Cloud Storage or Pub/Sub, consider using <a href="https://github.com/GoogleCloudPlatform/gcloud-node"><code>gcloud</code></a>, an
+idiomatic Node.js client for Google Cloud Platform services.</p>
+
+<p>You can find the list of Google Cloud Platform APIs supported by gcloud in the
+<a href="https://googlecloudplatform.github.io/gcloud-node/#/docs/gcloud">gcloud docs</a>.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>This library is distributed on <code>npm</code>. In order to add it as a dependency,
+run the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install googleapis --save</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Example: Creates a URL Shortener client and retrieves the long url of the
+given short url:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> urlshortener <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">urlshortener</span>(<span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> params <span class="pl-k">=</span> { shortUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>http://goo.gl/xKbRu3<span class="pl-pds">'</span></span> };
+
+<span class="pl-c">// get the long url of a shortened url</span>
+<span class="pl-smi">urlshortener</span>.<span class="pl-smi">url</span>.<span class="pl-c1">get</span>(params, <span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">response</span>) {
+  <span class="pl-k">if</span> (err) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Encountered error<span class="pl-pds">'</span></span>, err);
+  } <span class="pl-k">else</span> {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Long url is<span class="pl-pds">'</span></span>, <span class="pl-smi">response</span>.<span class="pl-smi">longUrl</span>);
+  }
+});</pre></div>
+
+<h3>
+<a id="create-a-service-client" class="anchor" href="#create-a-service-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a service client</h3>
+
+<p>To interact with the various Google APIs you need to create a service client
+for that particular API. These are immutable objects you use to make API calls.</p>
+
+<p>Example: Creating a <code>urlshortener</code> client with version <code>v1</code> of the API.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> urlshortener <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">urlshortener</span>(<span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>);</pre></div>
+
+<p>Supported APIs are listed on the <a href="https://developers.google.com/apis-explorer">Google APIs Explorer</a>.</p>
+
+<h3>
+<a id="authorizing-and-authenticating" class="anchor" href="#authorizing-and-authenticating" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authorizing and authenticating</h3>
+
+<h4>
+<a id="oauth2-client" class="anchor" href="#oauth2-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OAuth2 client</h4>
+
+<p>This client comes with an <a href="https://developers.google.com/identity/protocols/OAuth2">OAuth2</a> client that allows you to retrieve an
+access token and refreshes the token and retry the request seamlessly if token
+is expired. The basics of Google's OAuth2 implementation is explained on
+<a href="https://developers.google.com/identity/protocols/OpenIDConnect">Google Authorization and Authentication documentation</a>.</p>
+
+<p>In the following examples, you may need a <code>CLIENT_ID</code>, <code>CLIENT_SECRET</code> and
+<code>REDIRECT_URL</code>. You can find these pieces of information by going to the
+<a href="https://console.developer.google.com">Developer Console</a>, clicking your project --&gt; APIs &amp; auth --&gt; credentials.</p>
+
+<p>For more information about OAuth2 and how it works, <a href="https://developers.google.com/identity/protocols/OAuth2">see here</a>.</p>
+
+<p>A complete sample application that authorizes and authenticates with the OAuth2
+client is available at <a href="https://github.com/google/google-api-nodejs-client/tree/master/samples/oauth2.js"><code>samples/oauth2.js</code></a>.</p>
+
+<h5>
+<a id="generating-an-authentication-url" class="anchor" href="#generating-an-authentication-url" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generating an authentication URL</h5>
+
+<p>To ask for permissions from a user to retrieve an access token, you
+redirect them to a consent page. To create a consent page URL:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> OAuth2 <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-smi">OAuth2</span>;
+
+<span class="pl-k">var</span> oauth2Client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OAuth2</span>(<span class="pl-c1">CLIENT_ID</span>, <span class="pl-c1">CLIENT_SECRET</span>, <span class="pl-c1">REDIRECT_URL</span>);
+
+<span class="pl-c">// generate a url that asks permissions for Google+ and Google Calendar scopes</span>
+<span class="pl-k">var</span> scopes <span class="pl-k">=</span> [
+  <span class="pl-s"><span class="pl-pds">'</span>https://www.googleapis.com/auth/plus.me<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">'</span>https://www.googleapis.com/auth/calendar<span class="pl-pds">'</span></span>
+];
+
+<span class="pl-k">var</span> url <span class="pl-k">=</span> <span class="pl-smi">oauth2Client</span>.<span class="pl-en">generateAuthUrl</span>({
+  access_type<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>offline<span class="pl-pds">'</span></span>, <span class="pl-c">// 'online' (default) or 'offline' (gets refresh_token)</span>
+  scope<span class="pl-k">:</span> scopes <span class="pl-c">// If you only need one scope you can pass it as string</span>
+});</pre></div>
+
+<h5>
+<a id="retrieve-authorization-code" class="anchor" href="#retrieve-authorization-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieve authorization code</h5>
+
+<p>Once a user has given permissions on the consent page, Google will redirect
+the page to the redirect URL you have provided with a code query parameter.</p>
+
+<pre><code>GET /oauthcallback?code={authorizationCode}
+</code></pre>
+
+<h5>
+<a id="retrieve-access-token" class="anchor" href="#retrieve-access-token" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieve access token</h5>
+
+<p>With the code returned, you can ask for an access token as shown below:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">oauth2Client</span>.<span class="pl-en">getToken</span>(code, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">tokens</span>) {
+  <span class="pl-c">// Now tokens contains an access_token and an optional refresh_token. Save them.</span>
+  <span class="pl-k">if</span>(<span class="pl-k">!</span>err) {
+    <span class="pl-smi">oauth2Client</span>.<span class="pl-en">setCredentials</span>(tokens);
+  }
+});</pre></div>
+
+<h5>
+<a id="setting-global-or-service-level-auth" class="anchor" href="#setting-global-or-service-level-auth" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setting global or service-level auth</h5>
+
+<p>You can set the <code>auth</code> as a global or service-level option so you don't need to
+specify it every request.</p>
+
+<p>Example: Setting a global <code>auth</code> option.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> OAuth2 <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-smi">OAuth2</span>;
+<span class="pl-k">var</span> oauth2Client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OAuth2</span>(<span class="pl-c1">CLIENT_ID</span>, <span class="pl-c1">CLIENT_SECRET</span>, <span class="pl-c1">REDIRECT_URL</span>);
+<span class="pl-smi">google</span>.<span class="pl-c1">options</span>({ auth<span class="pl-k">:</span> oauth2Client }); <span class="pl-c">// set auth as a global default</span></pre></div>
+
+<p>Example: Setting a service-level <code>auth</code> option.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> OAuth2 <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-smi">OAuth2</span>;
+<span class="pl-k">var</span> oauth2Client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OAuth2</span>(<span class="pl-c1">CLIENT_ID</span>, <span class="pl-c1">CLIENT_SECRET</span>, <span class="pl-c1">REDIRECT_URL</span>);
+
+<span class="pl-k">var</span> drive <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">drive</span>({ version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v2<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> oauth2Client });</pre></div>
+
+<p>See the <a href="https://github.com/google/google-api-nodejs-client/tree/master#options">Options section</a> for more information.</p>
+
+<h5>
+<a id="making-authenticated-requests" class="anchor" href="#making-authenticated-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making authenticated requests</h5>
+
+<p>You can start using OAuth2 to authorize and authenticate your
+requests to Google APIs with the retrieved tokens. If you provide a
+<code>refresh_token</code>, <code>expiry_date</code> and the <code>access_token</code> has expired, the <code>access_token</code> will be
+automatically refreshed and the request is replayed.</p>
+
+<p>Following sample retrieves Google+ profile of the authenticated user.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> plus <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">plus</span>(<span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> OAuth2 <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-smi">OAuth2</span>;
+<span class="pl-k">var</span> oauth2Client <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">OAuth2</span>(<span class="pl-c1">CLIENT_ID</span>, <span class="pl-c1">CLIENT_SECRET</span>, <span class="pl-c1">REDIRECT_URL</span>);
+
+<span class="pl-c">// Retrieve tokens via token exchange explained above or set them:</span>
+<span class="pl-smi">oauth2Client</span>.<span class="pl-en">setCredentials</span>({
+  access_token<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>ACCESS TOKEN HERE<span class="pl-pds">'</span></span>,
+  refresh_token<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>REFRESH TOKEN HERE<span class="pl-pds">'</span></span>,
+  expiry_date<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>EXPIRY DATE HERE<span class="pl-pds">'</span></span>
+});
+
+<span class="pl-smi">plus</span>.<span class="pl-smi">people</span>.<span class="pl-c1">get</span>({ userId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>me<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> oauth2Client }, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">response</span>) {
+  <span class="pl-c">// handle err and response</span>
+});</pre></div>
+
+<h5>
+<a id="manually-refreshing-access-token" class="anchor" href="#manually-refreshing-access-token" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manually refreshing access token</h5>
+
+<p>If you need to manually refresh the <code>access_token</code> associated with your OAuth2
+client, make sure you have a <code>refresh_token</code> set in your credentials first and
+then call:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">oauth2Client</span>.<span class="pl-en">refreshAccessToken</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">tokens</span>) {
+  <span class="pl-c">// your access_token is now refreshed and stored in oauth2Client</span>
+  <span class="pl-c">// store these new tokens in a safe place (e.g. database)</span>
+});</pre></div>
+
+<h4>
+<a id="using-api-keys" class="anchor" href="#using-api-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using API keys</h4>
+
+<p>You may need to send an API key with the request you are going to make.
+The following uses an API key to make a request to the Google+ API service to
+retrieve a person's profile given a userId:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> plus <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">plus</span>(<span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> <span class="pl-c1">API_KEY</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>ABC123<span class="pl-pds">'</span></span>; <span class="pl-c">// specify your API key here</span>
+
+<span class="pl-smi">plus</span>.<span class="pl-smi">people</span>.<span class="pl-c1">get</span>({ auth<span class="pl-k">:</span> <span class="pl-c1">API_KEY</span>, userId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>+google<span class="pl-pds">'</span></span> }, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">user</span>) {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Result: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> (err <span class="pl-k">?</span> <span class="pl-smi">err</span>.<span class="pl-smi">message</span> <span class="pl-k">:</span> <span class="pl-smi">user</span>.<span class="pl-smi">displayName</span>));
+});</pre></div>
+
+<p>Alternatively, you can specify the <code>key</code> parameter and it will get used:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">plus</span>.<span class="pl-smi">people</span>.<span class="pl-c1">get</span>({ key<span class="pl-k">:</span> <span class="pl-c1">API_KEY</span>, userId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>+google<span class="pl-pds">'</span></span> }, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">user</span>) {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Result: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> (err <span class="pl-k">?</span> <span class="pl-smi">err</span>.<span class="pl-smi">message</span> <span class="pl-k">:</span> <span class="pl-smi">user</span>.<span class="pl-smi">displayName</span>));
+});</pre></div>
+
+<p>To learn more about API keys, please see the <a href="https://support.google.com/cloud/answer/6158862?hl=en">documentation</a>.</p>
+
+<h4>
+<a id="using-jwt-service-tokens" class="anchor" href="#using-jwt-service-tokens" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using JWT (Service Tokens)</h4>
+
+<p>The Google Developers Console provides <code>.json</code> file that you can use to configure a JWT auth client and authenticate your requests.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> key <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>path/to/key.json<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> jwtClient <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">google.auth.JWT</span>(<span class="pl-smi">key</span>.<span class="pl-smi">client_email</span>, <span class="pl-c1">null</span>, <span class="pl-smi">key</span>.<span class="pl-smi">private_key</span>, [scope1, scope2], <span class="pl-c1">null</span>);
+
+<span class="pl-smi">jwtClient</span>.<span class="pl-en">authorize</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">tokens</span>) {
+  <span class="pl-k">if</span> (err) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(err);
+    <span class="pl-k">return</span>;
+  }
+
+  <span class="pl-c">// Make an authorized request to list Drive files.</span>
+  <span class="pl-smi">drive</span>.<span class="pl-smi">files</span>.<span class="pl-en">list</span>({ auth<span class="pl-k">:</span> jwtClient }, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">resp</span>) {
+    <span class="pl-c">// handle err and response</span>
+  });
+});</pre></div>
+
+<p>The parameters for the JWT auth client including how to use it with a <code>.pem</code> file are explained in <a href="samples/jwt.js">samples/jwt.js</a></p>
+
+<h4>
+<a id="choosing-the-correct-credential-type-automatically" class="anchor" href="#choosing-the-correct-credential-type-automatically" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Choosing the correct credential type automatically</h4>
+
+<p>Rather than manually creating an OAuth2 client, JWT client, or Compute client, the auth
+library can create the correct credential type for you, depending upon the environment your
+code is running under.</p>
+
+<p>For example, a JWT auth client will be created when your code is running
+on your local developer machine, and a Compute client will be created when the same code
+is running on a configured instance of Google Compute Engine.</p>
+
+<p>The code below shows how to retrieve a default credential type, depending upon the runtime
+environment. The createScopedRequired must be called to determine when you need to pass
+in the scopes manually, and when they have been set for you automatically based on the
+configured runtime environment.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-en">getApplicationDefault</span>(<span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">authClient</span>) {
+  <span class="pl-k">if</span> (err) {
+    <span class="pl-smi">res</span>.<span class="pl-c1">send</span>(<span class="pl-s"><span class="pl-pds">'</span>Failed to get the default credentials: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-c1">String</span>(err));
+    <span class="pl-k">return</span>;
+  }
+  <span class="pl-c">// The createScopedRequired method returns true when running on GAE or a local developer</span>
+  <span class="pl-c">// machine. In that case, the desired scopes must be passed in manually. When the code is</span>
+  <span class="pl-c">// running in GCE or a Managed VM, the scopes are pulled from the GCE metadata server.</span>
+  <span class="pl-c">// See https://cloud.google.com/compute/docs/authentication for more information.</span>
+  <span class="pl-k">if</span> (<span class="pl-smi">authClient</span>.<span class="pl-smi">createScopedRequired</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">authClient</span>.<span class="pl-en">createScopedRequired</span>()) {
+    <span class="pl-c">// Scopes can be specified either as an array or as a single, space-delimited string.</span>
+    authClient <span class="pl-k">=</span> <span class="pl-smi">authClient</span>.<span class="pl-en">createScoped</span>([<span class="pl-s"><span class="pl-pds">'</span>https://www.googleapis.com/auth/compute<span class="pl-pds">'</span></span>]);
+  }
+  <span class="pl-c">// Fetch the list of GCE zones within a project.</span>
+  <span class="pl-c">// NOTE: You must fill in your valid project ID before running this sample!</span>
+  <span class="pl-k">var</span> compute <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">compute</span>({ version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> authClient });
+  <span class="pl-k">var</span> projectId <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>fill in your project id here!<span class="pl-pds">'</span></span>;
+  <span class="pl-smi">compute</span>.<span class="pl-smi">zones</span>.<span class="pl-en">list</span>({ project<span class="pl-k">:</span> projectId, auth<span class="pl-k">:</span> authClient }, <span class="pl-k">function</span>(<span class="pl-smi">error</span>, <span class="pl-smi">result</span>) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(error, result);
+  });
+});</pre></div>
+
+<h3>
+<a id="specifying-request-body" class="anchor" href="#specifying-request-body" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specifying request body</h3>
+
+<p>The body of the request is specified in the <code>resource</code> parameter object of the request. The resource/body is specified as a JavaScript object with key/value pairs. See the example in the next section below for an example on how it is specified.</p>
+
+<h3>
+<a id="media-uploads" class="anchor" href="#media-uploads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Media uploads</h3>
+
+<p>This client supports multipart media uploads. The resource parameters are
+specified in the <code>resource</code> parameter object, and the media itself is
+specified in the <code>media.body</code> parameter with mime-type specified in <code>media.mimeType</code>.</p>
+
+<h5>
+<a id="example-upload-a-plain-text-file-to-google-drive" class="anchor" href="#example-upload-a-plain-text-file-to-google-drive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Upload a plain text file to Google Drive</h5>
+
+<p>This example uploads a plain text file to Google Drive with the title "Test" and
+contents "Hello World".</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> drive <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">drive</span>({ version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v3<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> oauth2Client });
+
+<span class="pl-smi">drive</span>.<span class="pl-smi">files</span>.<span class="pl-en">create</span>({
+  resource<span class="pl-k">:</span> {
+    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Test<span class="pl-pds">'</span></span>,
+    mimeType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>text/plain<span class="pl-pds">'</span></span>
+  },
+  media<span class="pl-k">:</span> {
+    mimeType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>text/plain<span class="pl-pds">'</span></span>,
+    body<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Hello World<span class="pl-pds">'</span></span>
+  }
+}, callback);</pre></div>
+
+<p>You can also upload media by specifying <code>media.body</code> as a <a href="http://nodejs.org/api/stream.html#stream_class_stream_readable">Readable stream</a>.
+This can allow you to upload very large files that cannot fit into memory.</p>
+
+<p>Note: Your readable stream may be <a href="http://nodejs.org/api/stream.html#stream_stream">unstable</a>. Use at your own risk.</p>
+
+<h5>
+<a id="example-upload-an-image-to-google-drive-from-a-readable-stream" class="anchor" href="#example-upload-an-image-to-google-drive-from-a-readable-stream" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Upload an image to Google Drive from a readable stream</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> drive <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">drive</span>({ version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v3<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> oauth2Client });
+
+<span class="pl-smi">drive</span>.<span class="pl-smi">files</span>.<span class="pl-en">create</span>({
+  resource<span class="pl-k">:</span> {
+    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>testimage.png<span class="pl-pds">'</span></span>,
+    mimeType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>image/png<span class="pl-pds">'</span></span>
+  },
+  media<span class="pl-k">:</span> {
+    mimeType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>image/png<span class="pl-pds">'</span></span>,
+    body<span class="pl-k">:</span> <span class="pl-smi">fs</span>.<span class="pl-en">createReadStream</span>(<span class="pl-s"><span class="pl-pds">'</span>awesome.png<span class="pl-pds">'</span></span>) <span class="pl-c">// read streams are awesome!</span>
+  }
+}, callback);</pre></div>
+
+<p>For more examples of creation and modification requests with media attachments,
+take a look at the <code>samples/mediaupload.js</code> sample.</p>
+
+<h3>
+<a id="exposing-request-object" class="anchor" href="#exposing-request-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exposing request object</h3>
+
+<p>Every request to the API returns a <a href="https://github.com/request/request"><code>request</code></a> object, allowing you to track
+the request's progress or general information about the request.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> req <span class="pl-k">=</span> <span class="pl-smi">drive</span>.<span class="pl-smi">files</span>.<span class="pl-en">create</span>(<span class="pl-c">/* ... */</span>);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-smi">req</span>.<span class="pl-smi">uri</span>.<span class="pl-c1">href</span>); <span class="pl-c">// print out the request's URL.</span></pre></div>
+
+<h3>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h3>
+
+<p>For more fine-tuned control over how your API calls are made,
+we provide you with the ability to specify additional options that can
+be applied directly to the <a href="https://github.com/request/request"><code>mikeal/request</code></a> object used in
+this library to make network calls to the API.</p>
+
+<p>You may specify additional options either in the global <code>google</code> object or on a
+service client basis.</p>
+
+<h4>
+<a id="available-options" class="anchor" href="#available-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available options</h4>
+
+<p>The options you specify are attached to the <code>request</code> object so whatever
+<code>request</code> supports, this library supports. You may also specify global or per-service request parameters that will be attached to all API calls you make.</p>
+
+<p>A full list of supported options can be <a href="https://github.com/request/request#requestoptions-callback">found here</a>.</p>
+
+<h4>
+<a id="global-options" class="anchor" href="#global-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Global options</h4>
+
+<h5>
+<a id="example-specifying-a-default-proxy-and-auth-to-be-used-for-each-request" class="anchor" href="#example-specifying-a-default-proxy-and-auth-to-be-used-for-each-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Specifying a default proxy and <code>auth</code> to be used for each request</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-smi">google</span>.<span class="pl-c1">options</span>({ proxy<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>http://proxy.example.com<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> auth });
+
+<span class="pl-c">// All requests made with this object will use these settings unless overridden.</span></pre></div>
+
+<h5>
+<a id="example-specifying-global-request-parameters" class="anchor" href="#example-specifying-global-request-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Specifying global request parameters</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-smi">google</span>.<span class="pl-c1">options</span>({ params<span class="pl-k">:</span> { quotaUser<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>user123@example.com<span class="pl-pds">'</span></span> } });
+
+<span class="pl-c">// All requests from all services will contain the above query parameter</span>
+<span class="pl-c">// unless overridden either in a service client or in individual API calls.</span></pre></div>
+
+<h4>
+<a id="service-client-options" class="anchor" href="#service-client-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Service-client options</h4>
+
+<p>You can also specify options when creating a service client.</p>
+
+<h5>
+<a id="example-specifying-a-default-auth-option-api-key-or-oauth2-client" class="anchor" href="#example-specifying-a-default-auth-option-api-key-or-oauth2-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Specifying a default <code>auth</code> option (API key or OAuth2 client)</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> auth <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>API KEY<span class="pl-pds">'</span></span>; <span class="pl-c">// or you could use oauth2Client</span>
+<span class="pl-k">var</span> urlshortener <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">urlshortener</span>({ version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>, auth<span class="pl-k">:</span> auth });
+
+<span class="pl-c">// All requests made with this object will use the specified auth.</span></pre></div>
+
+<p>By doing this, every API call made with this service client will use <code>'API KEY'</code>
+to authenticate.</p>
+
+<p><strong>Note:</strong> Created clients are <strong>immutable</strong> so you must create a new one if you
+want to specify different options.</p>
+
+<h5>
+<a id="example-specifying-default-service-client-query-parameters" class="anchor" href="#example-specifying-default-service-client-query-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example: Specifying default service client query parameters</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> urlshortener <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">urlshortener</span>({
+  version<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>v1<span class="pl-pds">'</span></span>,
+  params<span class="pl-k">:</span> { quotaUser<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>user123@example.com<span class="pl-pds">'</span></span> }
+});
+<span class="pl-c">// All requests made with this service client will contain the</span>
+<span class="pl-c">// quotaUser query parameter unless overridden in individual API calls.</span>
+
+<span class="pl-c">// Calls with this drive client will NOT contain the quotaUser query parameter.</span>
+<span class="pl-k">var</span> drive <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">drive</span>(<span class="pl-s"><span class="pl-pds">'</span>v2<span class="pl-pds">'</span></span>);</pre></div>
+
+<h4>
+<a id="request-level-options" class="anchor" href="#request-level-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request-level options</h4>
+
+<p>You can specify an <code>auth</code> object to be used per request. Each request also
+inherits the options specified at the service level and global level.</p>
+
+<p>For example:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> google <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>googleapis<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> bigquery <span class="pl-k">=</span> <span class="pl-smi">google</span>.<span class="pl-en">bigquery</span>(<span class="pl-s"><span class="pl-pds">'</span>v2<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">google</span>.<span class="pl-smi">auth</span>.<span class="pl-en">getApplicationDefault</span>(<span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">authClient</span>) {
+  <span class="pl-k">if</span> (err) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Authentication failed because of <span class="pl-pds">'</span></span>, err);
+    <span class="pl-k">return</span>;
+  }
+  <span class="pl-k">if</span> (<span class="pl-smi">authClient</span>.<span class="pl-smi">createScopedRequired</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">authClient</span>.<span class="pl-en">createScopedRequired</span>()) {
+    <span class="pl-k">var</span> scopes <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>https://www.googleapis.com/auth/cloud-platform<span class="pl-pds">'</span></span>];
+    authClient <span class="pl-k">=</span> <span class="pl-smi">authClient</span>.<span class="pl-en">createScoped</span>(scopes);
+  }
+
+  <span class="pl-k">var</span> request <span class="pl-k">=</span> {
+    projectId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;your-project-id&gt;<span class="pl-pds">'</span></span>,
+    datasetId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;your-dataset-id&gt;<span class="pl-pds">'</span></span>,
+
+    <span class="pl-c">// This is a "request-level" option</span>
+    auth<span class="pl-k">:</span> authClient
+  };
+
+  <span class="pl-smi">bigquery</span>.<span class="pl-smi">datasets</span>.<span class="pl-c1">delete</span>(request, <span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
+    <span class="pl-k">if</span> (err) {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(err);
+    } <span class="pl-k">else</span> {
+      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(result);
+    }
+  });
+});</pre></div>
+
+<p>You can also override <em>request</em> options per request, such as <code>url</code>, <code>method</code>,
+and <code>encoding</code>.</p>
+
+<p>For example:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">drive</span>.<span class="pl-smi">files</span>.<span class="pl-en">export</span>({
+  fileId<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>asxKJod9s79<span class="pl-pds">'</span></span>, <span class="pl-c">// A Google Doc</span>
+  mimeType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>application/pdf<span class="pl-pds">'</span></span>
+}, {
+  encoding<span class="pl-k">:</span> <span class="pl-c1">null</span> <span class="pl-c">// Make sure we get the binary data</span>
+}, <span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">buffer</span>) {
+  <span class="pl-c">// ...</span>
+});</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>This library is licensed under Apache 2.0. Full license text is
+available in <a href="https://github.com/google/google-api-nodejs-client/tree/master/COPYING">COPYING</a>.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>See <a href="https://github.com/google/google-api-nodejs-client/blob/master/.github/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
+
+<hr>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/chitsuhein/google-api-nodejs-client/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/chitsuhein/google-api-nodejs-client/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/chitsuhein/google-api-nodejs-client"></a> is maintained by <a href="https://github.com/chitsuhein">chitsuhein</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-85722376-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
